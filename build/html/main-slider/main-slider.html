@@ -1,0 +1,19 @@
+<div class = "wrapp" v-if="!$store.state.mainSliderDownload">
+<div class="main-slider" v-bind:style="widthSlidersBlock">
+    <div v-for = 'item in $store.state.mainSliders' class ="item"
+         v-bind:style="{'width':widthSlider, 'background-image': 'url('+item.background+')'}">
+        <top></top>
+        <div class = "content">
+        <div class ="title">{{item.title}}</div>
+        <div class ="description">{{item.description}}</div>
+            <a href="#sec2" class="button">Подробнее </a>
+        </div>
+    </div>
+</div>
+    <navigation :clickCount="clickCount" @increment = 'increment' @decrement = 'decrement'></navigation>
+    <div class="owl-dots">
+        <div v-for = '(item,index) in $store.state.mainSliders'
+             v-bind:data-item = "item.id" v-bind:class="index!==0?'owl-dot':'owl-dot active'" v-on:click = "dotChangeCount"></div>
+    </div>
+</div>
+<div v-else class = "load"><img src ="/img/load.svg"></div>

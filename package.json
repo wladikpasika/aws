@@ -1,0 +1,38 @@
+{
+  "name": "rabota-v-polshe.com",
+  "version": "1.0.0",
+  "description": "site rabota-v-polshe.com.ua",
+  "main": "webpack.config.js",
+  "scripts": {
+    "wepback": "webpack",
+    "build": "babel src -d dist --presets es2015",
+    "watch": "babel src -d dist --presets es2015 -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/vladikpasika/rabota-v-polshe.com#readme",
+  "keywords": [],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "html-loader": "^0.5.1",
+    "vue-loader": "^12.1.0",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.32",
+    "@babel/preset-env": "^7.0.0-beta.32",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.0.0-beta.0",
+    "mysql": "^2.15.0",
+    "nodemailer": "^4.4.1",
+    "vue": "^2.5.2",
+    "vue-resource": "^1.3.4",
+    "vue-router": "^3.0.1",
+    "vue-slider-component": "^2.4.4",
+    "vuex": "^3.0.0",
+    "webpack": "^3.8.1"
+  }
+}

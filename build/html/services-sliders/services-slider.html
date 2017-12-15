@@ -1,0 +1,44 @@
+<div v-if="!$store.state.servicesSliderDownload">
+    <a name="sec2"></a>
+    <div class="section-title">
+        <h1>Наши услуги по трудоустройству в Польше</h1>
+    </div>
+    <div class="section-subtitle">
+        Гарантировано качество, скорость и 100% результата
+    </div>
+    <div class = "wrp">
+        <div class = "row" v-bind:style = "widthSlidersBlock">
+        <div class = "service-cart"
+             v-for="item in $store.state.servicesSliders" v-bind:style = "widthServicesCard">
+            <div class = "serv">
+                <div class = "front">
+                    <img :src= "item.img">
+                    <div class = "content">
+                        <div class = "title">{{item.title}}</div>
+                        <div class = "button-price">
+                            <div class="price-on-card">
+                                <p>Стоимость услуги:</p>
+                                <p>{{item.price}} {{item.currency}}</p>
+                            </div>
+                            <a href="#" class="button" @click = '(e)=>{return vShowClickOnButton(e)}'>
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class = "back">
+                    <div class = "close" @click = '(e)=>{return vShowClickOnClose(e)}'></div>
+                    <div v-html="item.description"></div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+    <div class="nav-2">
+        <div class="owl-prev-2" @click = "clickCount -=1"></div>
+        <div class="owl-next-2" @click = "clickCount +=1"></div>
+    </div>
+</div>
+<div v-else class = "load"><img src ="/img/load.svg"></div>

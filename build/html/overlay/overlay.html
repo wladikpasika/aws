@@ -1,0 +1,26 @@
+<div class="overlay" :style="{'display': $store.state.overlayDisplay?'block':'none'}">
+    <div class="popup-close" @click = "overlayDisplay"></div>
+    <div class="popup" style="display: block;">
+        <div class="popup-inner">
+            <div id="formNotSend">
+                <div class="section-title">
+                    Напишите нам
+                </div>
+                <div class="section-subtitle">
+                    Если у вас есть вопросы, оставьте ваш номер телефона, и мы перезвоним в ближайшее время
+                </div>
+            </div>
+            <div id="forSend" v-show="thanksBlock">
+                <div class="section-title">Заявка успешно отправлена!</div>
+                <div class="section-subtitle">Мы свяжемся с вами в ближайшее время.</div>
+            </div>
+
+
+            <form id="form">
+                <input type="text" name="name" placeholder="Ваше имя" v-model = 'emailData.name'>
+                <input type="text" name="phone" placeholder="Телефон или email" v-model = 'emailData.number'>
+                <button type="submit" @click="sendEmail">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>
