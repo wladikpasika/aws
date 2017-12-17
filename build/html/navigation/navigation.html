@@ -1,4 +1,4 @@
-<div class="menu-wrp">
+<div :class="!sticking?'menu-wrp':'menu-wrp stiki'">
     <nav>
         <div :class="mobMenuActive?'mob-menu active':'mob-menu'" @click = 'mobMenuCheck'>
             <span></span>

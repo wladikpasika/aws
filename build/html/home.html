@@ -1,10 +1,10 @@
 <div>
     <overlay></overlay>
-    <div class = "section section-1" v-bind:style = "{'height': $store.getters.heightMainSlider+'px'}">
+    <div class = "section section-1" :style = "{'height': $store.getters.heightMainSlider+'px'}">
     <main-slider></main-slider>
     <navigation></navigation>
     </div>
-    <div class = "section section-2" v-bind:style = "heightScreen">
+    <div class = "section section-2" :style = "heightScreen">
     <services-slider></services-slider>
     </div>
 </div>

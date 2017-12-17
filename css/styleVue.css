@@ -613,6 +613,7 @@ nav .mob-menu span {
  height: 100%;
  background: #EFF3F6;
  z-index: 3;
+
 }
 .popup-close {
  position: fixed;
@@ -680,6 +681,11 @@ nav .mob-menu span {
  -o-transition: 0.3s;
  transition: 0.3s;
  cursor: pointer;
+}
+.stiki {
+ position: fixed;
+ top: 0;
+ transition: 0s;
 }
 
 @media (max-width: 979px) {

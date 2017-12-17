@@ -23,6 +23,8 @@ export default{
         if(this.emailData.name.length<2||this.emailData.number.length<=4){
             return alert('Вы неправильно заполнили форму, попробуйте еще раз')}
         else{
+            this.emailData.name = '';
+            this.emailData.number = '';
             return this.thanksBlock = true}}
     }
 }

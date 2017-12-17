@@ -77,11 +77,10 @@ export default {
         context.commit('SET_SCREEN_HEIGHT', heightScreen);
     },
     OVERLAY_GET(context){
-        console.log(context);
-        /*передаем высоту в мутацию, потом в хранилище*/
+
         let overlayDisplay;
 
-        if(context.state.overlayDisplay===true){
+        if(context.state.overlayDisplay){
             overlayDisplay=false;
         }
         else{

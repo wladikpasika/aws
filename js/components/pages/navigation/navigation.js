@@ -5,14 +5,17 @@ export default {
     data(){
         return {
             mobMenuActive: false,
-            menuFlag:0
+            menuFlag:0,
+            sticking:false,
         }
     },
-    computed:{
-
-
+    created(){
+        window.addEventListener('scroll', ()=>{
+            return this.menuSticking();
+        })
     },
     methods:{
+
         mobMenuCheck(){
             this.menuFlag +=1;
 
@@ -26,6 +29,26 @@ export default {
         overlayDisplay(){
 
             return this.$store.dispatch('OVERLAY_GET').then(()=>{return this.mobMenuCheck()});
+        },
+        menuSticking(){
+
+            if (this.$store.state.widthScreen >= 980) {
+
+                if (!this.sticking) {
+
+                    if (window.pageYOffset >= window.innerHeight - (this.$store.getters.fontSize* 9.2) - 5) {
+                        this.sticking = true;
+                    }
+                }
+                else {
+
+                    if (window.pageYOffset < window.innerHeight - (this.$store.getters.fontSize * 9.2) - 5){
+                        this.sticking = false;
+                    }
+
+                }
+            }
+
         }
     }
 
