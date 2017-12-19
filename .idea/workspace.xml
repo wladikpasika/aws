@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6069059-562e-4038-8f82-24695d8f0018" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle.js" afterPath="$PROJECT_DIR$/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle.js.map" afterPath="$PROJECT_DIR$/bundle.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custom-node-modules/req-to-DB/connection.js" afterPath="$PROJECT_DIR$/custom-node-modules/req-to-DB/connection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/store/actions.js" afterPath="$PROJECT_DIR$/js/store/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-    </list>
+    <list default="true" id="a6069059-562e-4038-8f82-24695d8f0018" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -415,12 +408,12 @@
       <workItem from="1511720450906" duration="61685000" />
       <workItem from="1512133012811" duration="33404000" />
       <workItem from="1512253038082" duration="101030000" />
-      <workItem from="1512595979690" duration="206933000" />
+      <workItem from="1512595979690" duration="207971000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="540694000" />
+    <option name="totallyTimeSpent" value="541732000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
