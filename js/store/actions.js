@@ -7,7 +7,7 @@ export default {
 
         let get;
 
-        if(window.location.port==='8082'||window.location.port==='80'){
+        if(window.location.port==='8082'||window.location.port===''){
 
             get = '/?slider=main_slider';
 
@@ -24,7 +24,7 @@ export default {
 
         let get;
 
-        if(window.location.port==='8082'||window.location.port==='80'){
+        if(window.location.port==='8082'||window.location.port===''){
 
             get = '/?slider=nav';
 
@@ -44,7 +44,7 @@ export default {
 
         let get;
 
-        if(window.location.port==='8082'||window.location.port==='80'){
+        if(window.location.port==='8082'||window.location.port===''){
 
             get = '/?slider=block_services';
         }
