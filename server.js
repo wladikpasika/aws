@@ -1,5 +1,4 @@
 var http = require('http');
-var mysql = require('mysql');
 var url = require('url');
 var routes = require('./custom-node-modules/routes/routes-for-home-page');
 var readHTML = require('./custom-node-modules/fs/renderHTML');
@@ -15,7 +14,9 @@ var server = http.createServer(function (request, response) {
 
 });
 
-server.listen(8082);
+server.listen({
+    'port':80,
+});
 
 
 

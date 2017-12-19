@@ -16629,7 +16629,7 @@ var index_esm = {
     context.commit('SET_MAIN_SLIDERS_DOWNLOAD', true);
     let get;
 
-    if (window.location.port === '8082') {
+    if (window.location.port === '8082' || window.location.port === '80') {
       get = '/?slider=main_slider';
     } else {
       get = '/db/firstslider.json';
@@ -16645,7 +16645,7 @@ var index_esm = {
   GET_NAV_MENU(context) {
     let get;
 
-    if (window.location.port === '8082') {
+    if (window.location.port === '8082' || window.location.port === '80') {
       get = '/?slider=nav';
     } else {
       get = '/db/nav-menu.json';
@@ -16660,7 +16660,7 @@ var index_esm = {
     context.commit('SET_SERVICES_SLIDERS_DOWNLOAD', true);
     let get;
 
-    if (window.location.port === '8082') {
+    if (window.location.port === '8082' || window.location.port === '80') {
       get = '/?slider=block_services';
     } else {
       get = '/db/services-slider.json';
