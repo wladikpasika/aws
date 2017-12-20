@@ -4,6 +4,7 @@
   "description": "site rabota-v-polshe.com.ua",
   "main": "webpack.config.js",
   "scripts": {
+    "wepback": "webpack",
     "build": "babel src -d dist --presets es2015",
     "watch": "babel src -d dist --presets es2015 -w"
   },

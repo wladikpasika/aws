@@ -2,6 +2,7 @@ var http = require('http');
 var url = require('url');
 var routes = require('./custom-node-modules/routes/routes-for-home-page');
 var readHTML = require('./custom-node-modules/fs/renderHTML');
+var port = 80;
 
 var server = http.createServer(function (request, response) {
 
@@ -15,8 +16,10 @@ var server = http.createServer(function (request, response) {
 });
 
 server.listen({
-    'port':80,
+    'port':port,
 });
+console.log(port,' - порт');
+
 
 
 
