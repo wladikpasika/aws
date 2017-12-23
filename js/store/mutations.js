@@ -23,5 +23,8 @@ export default {
     },
     OVERLAY_SET(state,overlayDisplay){
         state.overlayDisplay = overlayDisplay;
+    },
+    SET_REVIEWS(state,reviews){
+        state.reviews = reviews;
     }
 }

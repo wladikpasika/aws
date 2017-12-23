@@ -1,25 +1,31 @@
-var http = require('http');
-var url = require('url');
-var routes = require('./custom-node-modules/routes/routes-for-home-page');
-var readHTML = require('./custom-node-modules/fs/renderHTML');
-var port = 80;
+const http = require('http');
+const url = require('url');
+const routes = require('./custom-node-modules/routes/routes-for-home-page');
+const postParse = require('./custom-node-modules/Email/parsePostMessage');
+const port = 80;
+const querystring = require('querystring');
 
-var server = http.createServer(function (request, response) {
+const server = http.createServer(function (request, response) {
 
     "use strict";
     response.writeHead(200, {'Content-Type': 'text/html'});
 
-    var path = url.parse(request.url, true);
+    let path = url.parse(request.url, true);
 
-    routes.conditions(path, response)
+    if(request.method === 'POST'&&path.pathname == '/email-message'){
 
+        postParse.postParse(request, response);
+
+    }
+    else if(request.method === 'GET'){
+
+        routes.conditions(path, response);
+    }
 });
 
 server.listen({
     'port':port,
 });
 console.log(port,' - порт');
-
-
 
 

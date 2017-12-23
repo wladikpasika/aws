@@ -36,7 +36,7 @@ export default {
             this.module = Math.abs(this.clickCount % this.$store.getters.mainSlidersCount);
             this.slidersCount = this.$store.state.mainSliders.length;
             return this.module
-        },
+        },///!!! переписать методом!!! Важно
 
         widthSlidersBlock(){
 

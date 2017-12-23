@@ -1,0 +1,28 @@
+<div>
+    <div class="section-title">
+        Отзывы клиентов
+    </div>
+    <div class="section-subtitle">
+        Правда с первых уст
+    </div>
+
+    <div class="qn">
+        <span class="slide-num">{{module+1}}</span>/
+        <span class="total">{{$store.state.reviews.length}}</span>
+    </div>
+    <div class="nav-2">
+        <div class="owl-prev-2" @click = "decrement"></div>
+        <div class="owl-next-2" @click = "increment"></div>
+    </div>
+
+    <div class="hidden-review">
+
+        <div class="review-slider owl-carousel" :style="{'width':$store.getters.widthReview*$store.state.reviews.length+'px'}">
+
+            <div class="slide-review" :style="{'width':$store.getters.widthReview+'px'}" v-for = 'review in $store.state.reviews'>
+                <youtube v-if = "review.src_type=='youtube'" :review = 'review'></youtube>
+                <images v-else :review = 'review'></images>
+            </div>
+        </div>
+    </div>
+</div>

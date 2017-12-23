@@ -1,0 +1,21 @@
+<div>
+    <div class="photo">
+        <img :src="review.src" :style="{'max-height':imageHeight+'px'}">
+    </div>
+    <div class="photo-text">
+        <div class="name">
+            {{review.name}}
+        </div>
+        <div class="profession">
+            {{review.review}}
+        </div>
+        <div class="profile">
+                            <span class="text">
+                                Профиль:
+                            </span>
+            <a class="vk" :href="review.social_link">
+                <span>В</span>
+            </a>
+        </div>
+    </div>
+</div>

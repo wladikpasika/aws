@@ -7,10 +7,11 @@ module.exports = {
 
     conditions: function (path, response) {
 
-        if(path.pathname.search(/\/img.+/)!==-1){
+        /*if(path.pathname.search(/\/img.+/)!==-1){
             readHTML.renderHTML('.'+path.pathname, response,'image/jpeg');
         }
-        else if(path.pathname.search(/\.css/)!==-1){
+        else */
+        if(path.pathname.search(/\.css/)!==-1){
             readHTML.renderHTML('.'+path.pathname, response, 'text/css');
         }
         else if(path.pathname.search(/\/fonts.+/)!==-1){
@@ -19,12 +20,14 @@ module.exports = {
         else if(path.pathname.search(/.+\.ico$|.+\.png$|.+\.jpg$/)!==-1){
             readHTML.renderHTML('.'+path.pathname, response, 'image/png');
         }
+        else if(path.pathname.search(/.+\.svg$/)!==-1){
+            readHTML.renderHTML('.'+path.pathname, response, 'image/svg+xml');
+        }
         else{
 
         switch (path.pathname) {
             case '/':
                 if (path.query.slider) {
-                    console.log(path.query, 'то что передаем в обработчик');
                     mysqlReq.requestToDb(response, path.query.slider);
 
                 }

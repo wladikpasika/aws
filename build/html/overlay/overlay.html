@@ -1,14 +1,15 @@
-<div class="overlay" :style="{'display': $store.state.overlayDisplay?'block':'none',
+<div :class="!$store.state.overlayDisplay?'overlay':'overlay active'"
+     :style="{
 'max-height': $store.state.heightScreen+'px'}">
     <div class="popup-close" @click = "overlayDisplay"></div>
     <div class="popup" style="display: block;">
-        <div class="popup-inner">
-            <div id="formNotSend" v-show="!thanksBlock">
+        <div class="popup-inner" v-if = "!sendFlag">
+            <div id="formNotSend" v-show = "!thanksBlock">
                 <div class="section-title">
                     Напишите нам
                 </div>
                 <div class="section-subtitle">
-                    Если у вас есть вопросы, оставьте ваш номер телефона, и мы перезвоним в ближайшее время
+                    Если у вас остались вопросы, оставьте ваш номер телефона, и мы перезвоним в ближайшее время
                 </div>
                 <form id="form">
                     <input type="text" name="name" placeholder="Ваше имя" v-model = 'emailData.name'>
@@ -17,10 +18,21 @@
                 </form>
             </div>
             <div id="forSend" v-show="thanksBlock">
-                <div class="section-title">Заявка успешно отправлена!</div>
-                <div class="section-subtitle">Мы свяжемся с вами в ближайшее время.</div>
-            </div>
+                <div class="section-title">
+                    <span v-if="successSend">Заявка успешно отправлена!</span>
+                    <span v-else>Произошла ошибка отправки данных!</span>
+                </div>
+                <div class="section-subtitle">
+                    <span v-if="successSend">Если контакты указаны правильно, мы свяжемся с Вами в ближайшее время.</span>
+                    <span v-else>Заявка не оправлена, просим воспользоваться электронной почтой: world2016_emig@ukr.net,
+                        <p>или позвонить по номеру телефона: +38 (066)-291-69-84.</p>
+                        <p>Извините за временные неудобства!</p></span>
+                </div>
 
+            </div>
+        </div>
+        <div v-else class = "load">
+            <img src ="/img/load.svg">
         </div>
     </div>
 </div>

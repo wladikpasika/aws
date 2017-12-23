@@ -4,6 +4,9 @@ import mainSlider from './main-slider/main-slider'
 import servicesSliders from './services-sliders/services-sliders'
 import navigation from './navigation/navigation'
 import overlay from './overlay/overlay'
+import vacantionsBlock from './vacantions-block/vacantions-block'
+import stages from './stages/stages'
+import reviews from "./review/review";
 
 export default Vue.component('home', {
     template,
@@ -22,7 +25,7 @@ export default Vue.component('home', {
             //проверяем наличие массива
             this.navMenuDownload()
         }
-        this.heightScreen;
+
        /*вызываем метод, диспетчерезирующий экшн, для измерения высоты экрана*/
        this.screenHeightAction();
        this.screenWidthAction();
@@ -35,6 +38,8 @@ export default Vue.component('home', {
                 this.screenHeightAction();
             },1000);
         });
+       this.reviewsDispatch();
+       /*получаем отзывы*/
 
     },
     computed:{
@@ -77,6 +82,10 @@ export default Vue.component('home', {
 
         servicesSliders:function(){
             return this.$store.dispatch('GET_SERVICES_SLIDERS');
+        },
+
+        reviewsDispatch:function(){
+            return this.$store.dispatch('GET_REVIEWS');
         }
 
     },
@@ -84,7 +93,10 @@ export default Vue.component('home', {
         'main-slider': mainSlider,
         'services-slider': servicesSliders,
         'navigation': navigation,
-        'overlay': overlay
+        'overlay': overlay,
+        'vacantions-block': vacantionsBlock,
+        'stages': stages,
+        'reviews': reviews
     }
 
 });

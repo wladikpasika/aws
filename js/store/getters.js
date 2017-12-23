@@ -70,6 +70,12 @@ export default {
             return 1;
         }
 
+    },
+    widthReview(state){
+        return state.widthScreen*0.7;
+    },
+    countReviewSliders(state){
+        return state.reviews.length;
     }
 
 }

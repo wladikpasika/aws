@@ -10699,7 +10699,7 @@ function getOuterHTML(el) {
 
 Vue$3.compile = compileToFunctions;
 /* harmony default export */ __webpack_exports__["a"] = (Vue$3);
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(3), __webpack_require__(8).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(4), __webpack_require__(8).setImmediate))
 
 /***/ }),
 /* 1 */
@@ -10937,147 +10937,6 @@ function transform(widthSlider, module, count, delta) {
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
-
-var g; // This works in non-strict mode
-
-g = function () {
-  return this;
-}();
-
-try {
-  // This works if eval is allowed (see CSP)
-  g = g || Function("return this")() || (1, eval)("this");
-} catch (e) {
-  // This works if the window reference is available
-  if (typeof window === "object") g = window;
-} // g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-
-module.exports = g;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__build_html_vacantions_html__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__build_html_vacantions_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__build_html_vacantions_html__);
-
-
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].component('vacantions', {
-  template: __WEBPACK_IMPORTED_MODULE_1__build_html_vacantions_html___default.a,
-  data: function () {
-    return {
-      message: '78'
-    };
-  }
-}));
-
-/***/ }),
-/* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__build_html_home_html__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__build_html_home_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__build_html_home_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_slider_main_slider__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_sliders_services_sliders__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__navigation_navigation__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__overlay_overlay__ = __webpack_require__(36);
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].component('home', {
-  template: __WEBPACK_IMPORTED_MODULE_1__build_html_home_html___default.a,
-
-  created() {
-    if (!this.$store.state.mainSliders.length) {
-      //проверяем наличие массива
-      this.mainSliderDownload();
-    }
-
-    if (!this.$store.state.servicesSliders.length) {
-      //проверяем наличие массива
-      this.servicesSliders();
-    }
-
-    if (!this.$store.state.navMenu.length) {
-      //проверяем наличие массива
-      this.navMenuDownload();
-    }
-
-    this.heightScreen;
-    /*вызываем метод, диспетчерезирующий экшн, для измерения высоты экрана*/
-
-    this.screenHeightAction();
-    this.screenWidthAction(); //вызываем метод, проверяющий ширину экрана
-
-    /*при смене размера экрана, повторяем вызов методов, для высоты и ширины экрана*/
-
-    window.addEventListener("resize", () => {
-      /*используем задержку в 1 секунду, для того, чтобы не загружать браузер большим количеством событий*/
-      return setTimeout(() => {
-        this.screenWidthAction();
-        this.screenHeightAction();
-      }, 1000);
-    });
-  },
-
-  computed: {
-    heightScreen() {
-      return {
-        'height': this.$store.state.widthScreen >= 980 ? this.$store.state.heightScreen + 'px' : 'auto'
-      };
-    }
-
-  },
-  methods: {
-    mainSliderDownload: function () {
-      return this.$store.dispatch('GET_MAIN_SLIDERS');
-    },
-    navMenuDownload: function () {
-      return this.$store.dispatch('GET_NAV_MENU');
-    },
-
-    /*диспетчерезируем вызов экшэна, который считает размер экрана*/
-    screenWidthAction: function () {
-      return this.$store.dispatch('GET_SCREEN_WIDTH').then(
-      /*выставляем размер шрифта - достаем с геттера*/
-      response => {
-        return document.documentElement.style.fontSize = this.$store.getters.fontSize + 'px';
-      }, err => {
-        console.log('Произошла ошибка при выставлении размера шрифта', err);
-      });
-    },
-    screenHeightAction: function () {
-      return this.$store.dispatch('GET_SCREEN_HEIGHT').then(response => {
-        /*после определения высоты, задаем ее в шаблоне c помощью геттера*/
-      }, err => {
-        console.log("Неудалось получить высоту для главного слайдера");
-      });
-    },
-    servicesSliders: function () {
-      return this.$store.dispatch('GET_SERVICES_SLIDERS');
-    }
-  },
-  components: {
-    'main-slider': __WEBPACK_IMPORTED_MODULE_2__main_slider_main_slider__["a" /* default */],
-    'services-slider': __WEBPACK_IMPORTED_MODULE_3__services_sliders_services_sliders__["a" /* default */],
-    'navigation': __WEBPACK_IMPORTED_MODULE_4__navigation_navigation__["a" /* default */],
-    'overlay': __WEBPACK_IMPORTED_MODULE_5__overlay_overlay__["a" /* default */]
-  }
-}));
-
-/***/ }),
-/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11176,6 +11035,160 @@ module.exports = g;
 });
 
 /***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+var g; // This works in non-strict mode
+
+g = function () {
+  return this;
+}();
+
+try {
+  // This works if eval is allowed (see CSP)
+  g = g || Function("return this")() || (1, eval)("this");
+} catch (e) {
+  // This works if the window reference is available
+  if (typeof window === "object") g = window;
+} // g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+
+module.exports = g;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__build_html_vacantions_html__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__build_html_vacantions_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__build_html_vacantions_html__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].component('vacantions', {
+  template: __WEBPACK_IMPORTED_MODULE_1__build_html_vacantions_html___default.a,
+  data: function () {
+    return {
+      message: '78'
+    };
+  }
+}));
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__build_html_home_html__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__build_html_home_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__build_html_home_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main_slider_main_slider__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_sliders_services_sliders__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__navigation_navigation__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__overlay_overlay__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__vacantions_block_vacantions_block__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__stages_stages__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__review_review__ = __webpack_require__(42);
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].component('home', {
+  template: __WEBPACK_IMPORTED_MODULE_1__build_html_home_html___default.a,
+
+  created() {
+    if (!this.$store.state.mainSliders.length) {
+      //проверяем наличие массива
+      this.mainSliderDownload();
+    }
+
+    if (!this.$store.state.servicesSliders.length) {
+      //проверяем наличие массива
+      this.servicesSliders();
+    }
+
+    if (!this.$store.state.navMenu.length) {
+      //проверяем наличие массива
+      this.navMenuDownload();
+    }
+    /*вызываем метод, диспетчерезирующий экшн, для измерения высоты экрана*/
+
+
+    this.screenHeightAction();
+    this.screenWidthAction(); //вызываем метод, проверяющий ширину экрана
+
+    /*при смене размера экрана, повторяем вызов методов, для высоты и ширины экрана*/
+
+    window.addEventListener("resize", () => {
+      /*используем задержку в 1 секунду, для того, чтобы не загружать браузер большим количеством событий*/
+      return setTimeout(() => {
+        this.screenWidthAction();
+        this.screenHeightAction();
+      }, 1000);
+    });
+    this.reviewsDispatch();
+    /*получаем отзывы*/
+  },
+
+  computed: {
+    heightScreen() {
+      return {
+        'height': this.$store.state.widthScreen >= 980 ? this.$store.state.heightScreen + 'px' : 'auto'
+      };
+    }
+
+  },
+  methods: {
+    mainSliderDownload: function () {
+      return this.$store.dispatch('GET_MAIN_SLIDERS');
+    },
+    navMenuDownload: function () {
+      return this.$store.dispatch('GET_NAV_MENU');
+    },
+
+    /*диспетчерезируем вызов экшэна, который считает размер экрана*/
+    screenWidthAction: function () {
+      return this.$store.dispatch('GET_SCREEN_WIDTH').then(
+      /*выставляем размер шрифта - достаем с геттера*/
+      response => {
+        return document.documentElement.style.fontSize = this.$store.getters.fontSize + 'px';
+      }, err => {
+        console.log('Произошла ошибка при выставлении размера шрифта', err);
+      });
+    },
+    screenHeightAction: function () {
+      return this.$store.dispatch('GET_SCREEN_HEIGHT').then(response => {
+        /*после определения высоты, задаем ее в шаблоне c помощью геттера*/
+      }, err => {
+        console.log("Неудалось получить высоту для главного слайдера");
+      });
+    },
+    servicesSliders: function () {
+      return this.$store.dispatch('GET_SERVICES_SLIDERS');
+    },
+    reviewsDispatch: function () {
+      return this.$store.dispatch('GET_REVIEWS');
+    }
+  },
+  components: {
+    'main-slider': __WEBPACK_IMPORTED_MODULE_2__main_slider_main_slider__["a" /* default */],
+    'services-slider': __WEBPACK_IMPORTED_MODULE_3__services_sliders_services_sliders__["a" /* default */],
+    'navigation': __WEBPACK_IMPORTED_MODULE_4__navigation_navigation__["a" /* default */],
+    'overlay': __WEBPACK_IMPORTED_MODULE_5__overlay_overlay__["a" /* default */],
+    'vacantions-block': __WEBPACK_IMPORTED_MODULE_6__vacantions_block_vacantions_block__["a" /* default */],
+    'stages': __WEBPACK_IMPORTED_MODULE_7__stages_stages__["a" /* default */],
+    'reviews': __WEBPACK_IMPORTED_MODULE_8__review_review__["a" /* default */]
+  }
+}));
+
+/***/ }),
 /* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11187,7 +11200,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_resource__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_App__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_App__ = __webpack_require__(48);
 
 
 
@@ -11475,7 +11488,7 @@ exports.clearImmediate = clearImmediate;
   attachTo.setImmediate = setImmediate;
   attachTo.clearImmediate = clearImmediate;
 })(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(1)))
 
 /***/ }),
 /* 10 */
@@ -16609,11 +16622,12 @@ var index_esm = {
 /* harmony default export */ __webpack_exports__["a"] = ({
   mainSliders: [],
   servicesSliders: [],
+  navMenu: [],
+  reviews: [],
   widthScreen: 0,
   heightScreen: 0,
   mainSliderDownload: false,
   servicesSliderDownload: false,
-  navMenu: [],
   overlayDisplay: false
 });
 
@@ -16653,6 +16667,21 @@ var index_esm = {
 
     __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].http.get(get).then(response => {
       context.commit('SET_NAV_MENU', response.data);
+    });
+  },
+
+  GET_REVIEWS(context) {
+    let get;
+
+    if (window.location.port === '8082' || window.location.port === '') {
+      get = '/?slider=reviews';
+    } else {
+      get = '/db/reviews.json';
+    }
+
+    __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].http.get(get).then(response => {
+      console.log(response);
+      context.commit('SET_REVIEWS', response.data);
     });
   },
 
@@ -16741,6 +16770,10 @@ var index_esm = {
 
   OVERLAY_SET(state, overlayDisplay) {
     state.overlayDisplay = overlayDisplay;
+  },
+
+  SET_REVIEWS(state, reviews) {
+    state.reviews = reviews;
   }
 
 });
@@ -16809,6 +16842,14 @@ var index_esm = {
     } else {
       return 1;
     }
+  },
+
+  widthReview(state) {
+    return state.widthScreen * 0.7;
+  },
+
+  countReviewSliders(state) {
+    return state.reviews.length;
   }
 
 });
@@ -16818,8 +16859,8 @@ var index_esm = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_pages_vacantions__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_pages_home__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_pages_vacantions__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_pages_home__ = __webpack_require__(6);
 
  // тут мы декларируем все роуты приложения (какие компоненты за какие адреса отвечают)
 
@@ -16843,7 +16884,7 @@ module.exports = "<div>{{message}}</div>";
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section section-1\" :style = \"{'height': $store.getters.heightMainSlider+'px'}\">\n    <main-slider></main-slider>\n    <navigation></navigation>\n    </div>\n    <div class = \"section section-2\" :style = \"heightScreen\">\n    <services-slider></services-slider>\n    </div>\n</div>";
+module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section section-1\" :style = \"{'height': $store.getters.heightMainSlider+'px'}\">\n    <main-slider></main-slider>\n        <navigation></navigation>\n    </div>\n    <div class = \"section section-2\" :style = \"heightScreen\">\n        <services-slider></services-slider>\n    </div>\n    <div class=\"section section-3\" :style = \"heightScreen\">\n        <vacantions-block></vacantions-block>\n    </div>\n    <div class=\"section section-4\" :style = \"heightScreen\">\n        <stages></stages>\n    </div>\n    <div class=\"section section-5\" :style = \"heightScreen\">\n        <reviews></reviews>\n    </div>\n</div>";
 
 /***/ }),
 /* 22 */
@@ -16855,7 +16896,7 @@ module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section sec
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__navigation__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__top_js__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_transform__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helpers_touchEvent__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helpers_touchEvent__ = __webpack_require__(3);
 
 
 
@@ -16891,6 +16932,7 @@ module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section sec
       return this.module;
     },
 
+    ///!!! переписать методом!!! Важно
     widthSlidersBlock() {
       return Object(__WEBPACK_IMPORTED_MODULE_3__helpers_transform__["a" /* default */])(this.$store.state.widthScreen, this.moduleOfCount, this.$store.getters.mainSlidersCount);
     },
@@ -16962,7 +17004,7 @@ module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section sec
 /* 23 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class = \"wrapp\" v-if=\"!$store.state.mainSliderDownload\">\n<div class=\"main-slider\" v-bind:style=\"widthSlidersBlock\">\n    <div v-for = 'item in $store.state.mainSliders' class =\"item\"\n         v-bind:style=\"{'width':widthSlider, 'background-image': 'url('+item.background+')'}\">\n        <top></top>\n        <div class = \"content\">\n        <div class =\"title\">{{item.title}}</div>\n        <div class =\"description\">{{item.description}}</div>\n            <a href=\"#sec2\" class=\"button\">Подробнее </a>\n        </div>\n    </div>\n</div>\n    <navigation :clickCount=\"clickCount\" @increment = 'increment' @decrement = 'decrement'></navigation>\n    <div class=\"owl-dots\">\n        <div v-for = '(item,index) in $store.state.mainSliders'\n             v-bind:data-item = \"item.id\" v-bind:class=\"index!==0?'owl-dot':'owl-dot active'\" v-on:click = \"dotChangeCount\"></div>\n    </div>\n</div>\n<div v-else class = \"load\"><img src =\"/img/load.svg\"></div>\n";
+module.exports = "<div class = \"wrapp\" v-if=\"!$store.state.mainSliderDownload\">\n<div class=\"main-slider\" :style=\"widthSlidersBlock\">\n    <div v-for = 'item in $store.state.mainSliders' class =\"item\"\n         :style=\"{'width':widthSlider, 'background-image': 'url('+item.background+')'}\">\n        <top></top>\n        <div class = \"content\">\n        <div class =\"title\">{{item.title}}</div>\n        <div class =\"description\">{{item.description}}</div>\n            <a href=\"#sec2\" class=\"button\">Подробнее </a>\n        </div>\n    </div>\n</div>\n    <navigation :clickCount=\"clickCount\" @increment = 'increment' @decrement = 'decrement'></navigation>\n    <div class=\"owl-dots\">\n        <div v-for = '(item,index) in $store.state.mainSliders'\n             :data-item = \"item.id\" :class=\"index!==0?'owl-dot':'owl-dot active'\" v-on:click = \"dotChangeCount\"></div>\n    </div>\n</div>\n<div v-else class = \"load\"><img src =\"/img/load.svg\"></div>\n";
 
 /***/ }),
 /* 24 */
@@ -17092,7 +17134,7 @@ module.exports = "<a class = \"logo\"><img src=\"/img/logo.png\"></a>";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_services_sliders_services_slider_html__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_services_sliders_services_slider_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_services_sliders_services_slider_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_transform__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_touchEvent__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_touchEvent__ = __webpack_require__(3);
 
 
 
@@ -17234,7 +17276,7 @@ module.exports = "<div v-if=\"!$store.state.servicesSliderDownload\">\n    <a na
 /* 35 */
 /***/ (function(module, exports) {
 
-module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\">\n    <nav>\n        <div :class=\"mobMenuActive?'mob-menu active':'mob-menu'\" @click = 'mobMenuCheck'>\n            <span></span>\n        </div>\n    </nav>\n    <div :class = \"mobMenuActive?'menu-nav active':'menu-nav'\">\n        <ul :class = \"mobMenuActive?'menu active':'menu'\">\n            <li v-for =\"item in $store.state.navMenu\" :data-menuanchor = \"item.link\">\n                <a :src = \"item.link\">{{item.title}}</a></li>\n            <div class = \"button\" @click = 'overlayDisplay'>\n                <a href=\"#\">Оставить заявку</a>\n            </div>\n        </ul>\n    </div>\n</div>\n";
+module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\" :style = \"{'max-height':$store.state.heightScreen+'px'}\">\n    <nav>\n        <div :class=\"mobMenuActive?'mob-menu active':'mob-menu'\" @click = 'mobMenuCheck'>\n            <span></span>\n        </div>\n    </nav>\n    <div :class = \"mobMenuActive?'menu-nav active':'menu-nav'\">\n        <ul :class = \"mobMenuActive?'menu active':'menu'\">\n            <li v-for =\"item in $store.state.navMenu\" :data-menuanchor = \"item.link\">\n                <a :src = \"item.link\">{{item.title}}</a></li>\n            <div class = \"button\" @click = 'overlayDisplay'>\n                Оставить заявку\n            </div>\n        </ul>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 36 */
@@ -17243,6 +17285,8 @@ module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\">\n    <n
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(0);
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   template: __WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html___default.a,
@@ -17253,7 +17297,9 @@ module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\">\n    <n
         name: '',
         number: ''
       },
-      thanksBlock: false
+      thanksBlock: false,
+      sendFlag: false,
+      successSend: true
     };
   },
 
@@ -17270,6 +17316,16 @@ module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\">\n    <n
       if (this.emailData.name.length < 2 || this.emailData.number.length <= 4) {
         return alert('Вы неправильно заполнили форму, попробуйте еще раз');
       } else {
+        this.sendFlag = true;
+        __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.post('email-message', {
+          name: this.emailData.name,
+          phoneEmail: this.emailData.number
+        }).then(success => {
+          this.sendFlag = false;
+        }, err => {
+          this.sendFlag = false;
+          this.successSend = false;
+        });
         this.emailData.name = '';
         this.emailData.number = '';
         return this.thanksBlock = true;
@@ -17283,17 +17339,194 @@ module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\">\n    <n
 /* 37 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"overlay\" :style=\"{'display': $store.state.overlayDisplay?'block':'none',\n'max-height': $store.state.heightScreen+'px'}\">\n    <div class=\"popup-close\" @click = \"overlayDisplay\"></div>\n    <div class=\"popup\" style=\"display: block;\">\n        <div class=\"popup-inner\">\n            <div id=\"formNotSend\" v-show=\"!thanksBlock\">\n                <div class=\"section-title\">\n                    Напишите нам\n                </div>\n                <div class=\"section-subtitle\">\n                    Если у вас есть вопросы, оставьте ваш номер телефона, и мы перезвоним в ближайшее время\n                </div>\n                <form id=\"form\">\n                    <input type=\"text\" name=\"name\" placeholder=\"Ваше имя\" v-model = 'emailData.name'>\n                    <input type=\"text\" name=\"phone\" placeholder=\"Телефон или email\" v-model = 'emailData.number'>\n                    <button type=\"submit\" @click=\"sendEmail\">Отправить</button>\n                </form>\n            </div>\n            <div id=\"forSend\" v-show=\"thanksBlock\">\n                <div class=\"section-title\">Заявка успешно отправлена!</div>\n                <div class=\"section-subtitle\">Мы свяжемся с вами в ближайшее время.</div>\n            </div>\n\n        </div>\n    </div>\n</div>";
+module.exports = "<div :class=\"!$store.state.overlayDisplay?'overlay':'overlay active'\"\n     :style=\"{\n'max-height': $store.state.heightScreen+'px'}\">\n    <div class=\"popup-close\" @click = \"overlayDisplay\"></div>\n    <div class=\"popup\" style=\"display: block;\">\n        <div class=\"popup-inner\" v-if = \"!sendFlag\">\n            <div id=\"formNotSend\" v-show = \"!thanksBlock\">\n                <div class=\"section-title\">\n                    Напишите нам\n                </div>\n                <div class=\"section-subtitle\">\n                    Если у вас остались вопросы, оставьте ваш номер телефона, и мы перезвоним в ближайшее время\n                </div>\n                <form id=\"form\">\n                    <input type=\"text\" name=\"name\" placeholder=\"Ваше имя\" v-model = 'emailData.name'>\n                    <input type=\"text\" name=\"phone\" placeholder=\"Телефон или email\" v-model = 'emailData.number'>\n                    <button type=\"submit\" @click=\"sendEmail\">Отправить</button>\n                </form>\n            </div>\n            <div id=\"forSend\" v-show=\"thanksBlock\">\n                <div class=\"section-title\">\n                    <span v-if=\"successSend\">Заявка успешно отправлена!</span>\n                    <span v-else>Произошла ошибка отправки данных!</span>\n                </div>\n                <div class=\"section-subtitle\">\n                    <span v-if=\"successSend\">Если контакты указаны правильно, мы свяжемся с Вами в ближайшее время.</span>\n                    <span v-else>Заявка не оправлена, просим воспользоваться электронной почтой: world2016_emig@ukr.net,\n                        <p>или позвонить по номеру телефона: +38 (066)-291-69-84.</p>\n                        <p>Извините за временные неудобства!</p></span>\n                </div>\n\n            </div>\n        </div>\n        <div v-else class = \"load\">\n            <img src =\"/img/load.svg\">\n        </div>\n    </div>\n</div>";
 
 /***/ }),
 /* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_vacansions_block_vacantions_block_html__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_vacansions_block_vacantions_block_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_vacansions_block_vacantions_block_html__);
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  template: __WEBPACK_IMPORTED_MODULE_0__build_html_vacansions_block_vacantions_block_html___default.a
+});
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <div class=\"section-title\">\n        Вакансии\n    </div>\n    <div class=\"section-subtitle\">\n        Выбирайте лучшее предложение для&nbsp;себя\n    </div>\n    <div class=\"wrp\">\n        <div class=\"row\">\n            <div class=\"vac vac-big bg1\">\n                <div class=\"title-wrp\">\n                    <div class=\"title\">\n                        Разнорабочие\n                    </div>\n                    <div class=\"price\">\n                        ЗП 450-750$\n                    </div>\n                    <div class=\"content\">\n                        Наша компания работает с&nbsp;заводами SAMSUNG (производство холодильников ,стиральных машин), Electrolux (стиральные машинки), LG&nbsp;(телевизоры, холодильники), AUDI (производство запчастей к&nbsp;легковым авто) BMW (автозапчасти) McDonald&rsquo; s&nbsp;(общественное питание) и&nbsp;другие\n                    </div>\n                </div>\n            </div>\n            <div class=\"vac bg2\">\n                <div class=\"title-wrp\">\n                    <div class=\"title\">\n                        Швеи\n                    </div>\n                    <div class=\"price\">\n                        ЗП 500-800$\n                    </div>\n                    <div class=\"content\">\n                        Возможно с&nbsp;минимальным опытом работы , а&nbsp;также без опыта,но с&nbsp;желанием обучится швейному делу\n                    </div>\n                </div>\n            </div>\n            <div class=\"vac no-bg\">\n                <div class=\"title-wrp\">\n                    <div class=\"title\">\n                        Сельхоз\n                    </div>\n                    <div class=\"price\">\n                        ЗП 450-700$\n                    </div>\n                    <div class=\"content\">\n                        Сбор урожая, трактористы. Выращивание грибов, овощей, цветов (теплицы), дойка коров, уход за&nbsp;скотом, и&nbsp;т.д.\n                    </div>\n                </div>\n            </div>\n            <div class=\"vac bg3\">\n                <div class=\"title-wrp\">\n                    <div class=\"title\">\n                        Общепит\n                    </div>\n                    <div class=\"price\">\n                        ЗП 450-700$\n                    </div>\n                    <div class=\"content\">\n                        Общественное питание и&nbsp;отели (официанты, повара, кондитеры, пекари, горничные)\n                    </div>\n                </div>\n            </div>\n            <div class=\"vac no-bg\">\n                <div class=\"title-wrp\">\n                    <div class=\"title\">\n                        Водители\n                    </div>\n                    <div class=\"price\">\n                        ЗП 600-1000$\n                    </div>\n                    <div class=\"content\">\n                        Водители на&nbsp;автокар, а также водители категории&nbsp;С, возможно без опыта\n                    </div>\n                </div>\n            </div>\n            <div class=\"vac bg4\">\n                <div class=\"title-wrp\">\n                    <div class=\"title\">\n                        Сиделки\n                    </div>\n                    <div class=\"price\">\n                        ЗП 500-800$\n                    </div>\n                    <div class=\"content\">\n                        Девушки и&nbsp;женщины. Желательно с&nbsp;опытом работы и&nbsp;медицинским образованием\n                    </div>\n                </div>\n            </div>\n            <div class=\"vac bg5\">\n                <div class=\"title-wrp\">\n                    <div class=\"title\">\n                        Мастера\n                    </div>\n                    <div class=\"price\">\n                        ЗП 600-1500$\n                    </div>\n                    <div class=\"content\">\n                        Квалифицированные специалисты на&nbsp;производство (токари, сварщики, мебельщики, столяры, слесари, электрики, инженеры)\n                    </div>\n                </div>\n            </div>\n            <div class=\"vac vac-big bg6\">\n                <div class=\"title-wrp\">\n                    <div class=\"title\">\n                        Строители\n                    </div>\n                    <div class=\"price\">\n                        ЗП 500-1000$\n                    </div>\n                    <div class=\"content\">\n                        Плотники-опалубщики, арматурщики, бетонщики, каменщики, плиточники, гипсокартонщики, электромонтажники, жестянщики, сантехники, столяры\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_stages_stages_html__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_stages_stages_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_stages_stages_html__);
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  template: __WEBPACK_IMPORTED_MODULE_0__build_html_stages_stages_html___default.a
+});
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <a name=\"sec4\"></a>\n    <div class=\"section-title\">\n        Этапы оформления\n    </div>\n    <div class=\"section-subtitle\">\n        Простота и прозрачность на первом месте\n    </div>\n    <div class=\"steps\">\n        <div class=\"step\">\n            <div class=\"step-num\">\n                1\n                <div class=\"step-ico\">\n                    <img :src=\"'img/step-ico-1.png'\">\n                </div>\n            </div>\n            <div class=\"step-desc\">\n                <div class=\"title\">\n                    Подписание договора\n                </div>\n            </div>\n        </div>\n        <div class=\"step\">\n            <div class=\"step-num\">\n                2\n                <div class=\"step-ico\">\n                    <img :src=\"'img/step-ico-2.png'\">\n                </div>\n            </div>\n            <div class=\"step-desc\">\n                <div class=\"title\">\n                    Получение приглашения на работу\n                </div>\n                и&nbsp;подготовка необходимых документов для оформления визы\n            </div>\n        </div>\n        <div class=\"step\">\n            <div class=\"step-num\">\n                3\n                <div class=\"step-ico\">\n                    <img :src=\"'img/step-ico-3.png'\">\n                </div>\n            </div>\n            <div class=\"step-desc\">\n                <div class=\"title\">\n                    Получение визы\n                </div>\n                и&nbsp;переговоры с&nbsp;работодателем (жилье, время прибытия и&nbsp;тд.)\n            </div>\n        </div>\n        <div class=\"step\">\n            <div class=\"step-num\">\n                4\n                <div class=\"step-ico\">\n                    <img :src=\"'img/step-ico-4.png'\">\n                </div>\n            </div>\n            <div class=\"step-desc\">\n                <div class=\"title\">\n                    Выезд клиента на работу в Польшу\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+
+/***/ }),
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_reviews_html__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_reviews_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_reviews_reviews_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__youtube_block_js__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__image_block_js__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_transform__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helpers_touchEvent__ = __webpack_require__(3);
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  template: __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_reviews_html___default.a,
+
+  data() {
+    return {
+      clickCount: 0,
+      module: 0,
+      slidersCount: 0
+    };
+  },
+
+  created() {
+    /*this.moduleListen;
+    this.count;*/
+  },
+
+  mounted() {
+    setTimeout(() => {
+      return this.touchEvent();
+    }, 1000);
+  },
+
+  computed: {
+    count() {
+      return this.slidersCount = this.$store.getters.countReviewSliders;
+    },
+
+    moduleListen() {
+      let a;
+      /*this.module!==0&&this.slidersCount!==0?a=Math.abs(this.clickCount % this.slidersCount):a=this.clickCount % this.slidersCount;*/
+
+      return this.clickCount % this.slidersCount;
+    },
+
+    widthTransform() {
+      return Object(__WEBPACK_IMPORTED_MODULE_3__helpers_transform__["a" /* default */])(this.$store.getters.widthReview, this.module, this.slidersCount);
+    }
+
+  },
+  components: {
+    'youtube': __WEBPACK_IMPORTED_MODULE_1__youtube_block_js__["a" /* default */],
+    'images': __WEBPACK_IMPORTED_MODULE_2__image_block_js__["a" /* default */]
+  },
+  methods: {
+    increment() {
+      this.clickCount += 1;
+      console.log(this.clickCount, this.module);
+      return;
+    },
+
+    decrement() {
+      console.log('дикремент');
+      return this.clickCount -= 1;
+    },
+
+    touchEvent() {
+      __WEBPACK_IMPORTED_MODULE_4__helpers_touchEvent__["a" /* default */].prototype = this;
+      console.log(this.$store.getters.widthReview, 'геттер');
+      let constr = new __WEBPACK_IMPORTED_MODULE_4__helpers_touchEvent__["a" /* default */]('.review-slider', this.$store.getters.widthReview);
+      return constr.main();
+    },
+
+    moduleCheck(clickCount, slidersCount) {
+      return this.module = Math.abs(clickCount % slidersCount);
+    }
+
+  }
+});
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <div class=\"section-title\">\n        Отзывы клиентов\n    </div>\n    <div class=\"section-subtitle\">\n        Правда с первых уст\n    </div>\n\n    <div class=\"qn\">\n        <span class=\"slide-num\">{{module + 1}}</span>/\n        <span class=\"total\">{{$store.state.reviews.length}}</span>\n    </div>\n    <div class=\"nav-2\">\n        <div class=\"owl-prev-2\" @click = \"decrement\"></div>\n        <div class=\"owl-next-2\" @click = \"increment\"></div>\n    </div>\n\n    <div class=\"hidden-review\">\n\n        <div class=\"review-slider owl-carousel\" :style=\"widthTransform\">\n\n            <div class=\"slide-review\" :style=\"{'width':$store.getters.widthReview+'px'}\" v-for = 'review in $store.state.reviews'>\n                <youtube v-if = \"review.src_type=='youtube'\" :review = 'review'></youtube>\n                <images v-else :review = 'review'></images>\n            </div>\n        </div>\n    </div>\n</div>\n";
+
+/***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_youtube_block_html__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_youtube_block_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_reviews_youtube_block_html__);
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  props: ['review'],
+  template: __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_youtube_block_html___default.a,
+  computed: {
+    videoHeight() {
+      return this.$store.state.widthScreen >= 980 ? this.$store.getters.widthReview * 0.48 / 1.8 : this.$store.getters.widthReview / 1.8;
+    }
+
+  }
+});
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <div class=\"vid\">\n        <iframe :src=\"review.src\" allowfullscreen=\"\" :style=\"{'height':videoHeight+'px'}\"></iframe>\n    </div>\n    <div class=\"vid-text\">\n        <div class=\"vid-text-inner\">\n            <div class=\"name\">\n                {{review.name}}\n            </div>\n            <div class=\"profession\">\n                {{review.review}}\n            </div>\n            <div class=\"profile\">\n                             <span class=\"text\">\n                                 Профиль:\n                             </span>\n                <a class=\"vk\" :href=\"review.social_link\">\n                    <span>В</span>\n                </a>\n            </div>\n        </div>\n    </div>\n</div>";
+
+/***/ }),
+/* 46 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_image_block_html__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_image_block_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_reviews_image_block_html__);
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  props: ['review'],
+  template: __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_image_block_html___default.a,
+  computed: {
+    imageHeight() {
+      return this.$store.state.widthScreen >= 980 ? this.$store.getters.widthReview * 0.48 / 1.8 * 1.5 : this.$store.getters.widthReview * 1.8 * 1.5;
+    }
+
+  }
+});
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <div class=\"photo\">\n        <img :src=\"review.src\" :style=\"{'max-height':imageHeight+'px'}\">\n    </div>\n    <div class=\"photo-text\">\n        <div class=\"name\">\n            {{review.name}}\n        </div>\n        <div class=\"profession\">\n            {{review.review}}\n        </div>\n        <div class=\"profile\">\n                            <span class=\"text\">\n                                Профиль:\n                            </span>\n            <a class=\"vk\" :href=\"review.social_link\">\n                <span>В</span>\n            </a>\n        </div>\n    </div>\n</div>";
+
+/***/ }),
+/* 48 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_vacantions__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_vacantions__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__build_html_App_html__);
 
 
@@ -17308,7 +17541,7 @@ module.exports = "<div class=\"overlay\" :style=\"{'display': $store.state.overl
 }));
 
 /***/ }),
-/* 39 */
+/* 49 */
 /***/ (function(module, exports) {
 
 module.exports = "<router-view></router-view>";

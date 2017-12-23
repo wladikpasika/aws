@@ -1,0 +1,23 @@
+<div>
+    <div class="vid">
+        <iframe :src="review.src" allowfullscreen="" :style="{'height':videoHeight+'px'}"></iframe>
+    </div>
+    <div class="vid-text">
+        <div class="vid-text-inner">
+            <div class="name">
+                {{review.name}}
+            </div>
+            <div class="profession">
+                {{review.review}}
+            </div>
+            <div class="profile">
+                             <span class="text">
+                                 Профиль:
+                             </span>
+                <a class="vk" :href="review.social_link">
+                    <span>В</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

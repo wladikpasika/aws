@@ -36,7 +36,23 @@ export default {
             context.commit('SET_NAV_MENU', response.data)
         });
     },
+    GET_REVIEWS(context) {
 
+        let get;
+
+        if(window.location.port==='8082'||window.location.port===''){
+
+            get = '/?slider=reviews';
+
+        }
+        else {
+            get = '/db/reviews.json';
+        }
+        Vue.http.get(get).then((response) => {
+            console.log(response);
+            context.commit('SET_REVIEWS', response.data)
+        });
+    },
 
     GET_SERVICES_SLIDERS(context) {
 

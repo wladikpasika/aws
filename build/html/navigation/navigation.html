@@ -1,4 +1,4 @@
-<div :class="!sticking?'menu-wrp':'menu-wrp stiki'">
+<div :class="!sticking?'menu-wrp':'menu-wrp stiki'" :style = "{'max-height':$store.state.heightScreen+'px'}">
     <nav>
         <div :class="mobMenuActive?'mob-menu active':'mob-menu'" @click = 'mobMenuCheck'>
             <span></span>
@@ -9,7 +9,7 @@
             <li v-for ="item in $store.state.navMenu" :data-menuanchor = "item.link">
                 <a :src = "item.link">{{item.title}}</a></li>
             <div class = "button" @click = 'overlayDisplay'>
-                <a href="#">Оставить заявку</a>
+                Оставить заявку
             </div>
         </ul>
     </div>
