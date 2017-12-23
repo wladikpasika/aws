@@ -70,11 +70,6 @@ export default {
 
             return constr.main()
 
-        },
-
-        moduleCheck(clickCount,slidersCount){
-
-            return this.module = Math.abs(clickCount % slidersCount);
         }
 
     }
