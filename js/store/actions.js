@@ -8,16 +8,14 @@ export default {
         let get;
 
         if(window.location.port==='8082'||window.location.port===''){
-
             get = '/?slider=main_slider';
-
         }
         else {
             get = '/db/firstslider.json';
         }
         Vue.http.get(get).then((response) => {
             context.commit('SET_MAIN_SLIDERS', response.data)
-        }).then(()=>{context.commit('SET_MAIN_SLIDERS_DOWNLOAD', false);});
+        }).then(()=>{context.commit('SET_MAIN_SLIDERS_DOWNLOAD', false)});
     },
 
     GET_NAV_MENU(context) {
@@ -51,6 +49,22 @@ export default {
         Vue.http.get(get).then((response) => {
             console.log(response);
             context.commit('SET_REVIEWS', response.data)
+        });
+    },
+    GET_CLIENTS_PHOTOS(context) {
+
+        let get;
+
+        if(window.location.port==='8082'||window.location.port===''){
+
+            get = '/?slider=clients_block';
+
+        }
+        else {
+            get = '/db/clients_block.json';
+        }
+        Vue.http.get(get).then((response) => {
+            context.commit('SET_CLIENTS_PHOTOS', response.data)
         });
     },
 

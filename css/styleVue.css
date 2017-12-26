@@ -1078,8 +1078,139 @@ nav .mob-menu span {
 .section.section-5 > div {
  position: relative;
 }
+.section-5 .review-slider {
+ transition: 0.5s;
+ z-index: 0;
+}
+.client-foto img {
+ display: none;
+}
+.client-foto {
+ display: block;
+ margin: 0 4.5% 0;
+}
+.clients {
+ max-height: 400px;
+ background-size: cover;
+}
+.foto-block-1 {
+ width: 33%;
+ margin: 0px;
+ padding: 0px;
+ margin-right: 2%;
+ display: inline-block;
+ vertical-align: top;
+ background-repeat: no-repeat;
+}
+.foto-block-2 {
+ width: 22%;
+ margin: 0px;
+ padding: 0px;
+ margin-right: 2%;
+ display: inline-block;
+ vertical-align: top;
+ background-repeat: no-repeat;
+}
+.foto-block-3 {
+ width: 40%;
+ margin: 0px;
+ padding: 0px;
+ display: inline-block;
+}
+.sub-foto-block {
+ width: 49%;
+ display: inline-block;
+ height: 49%;
+ background-size: cover;
+ margin: 0px;
+ padding: 0px;
+}
+.sub-foto-block:nth-child(even) {
+ float: right;
+}
+.sub-1 {
+ background-repeat: no-repeat;
+}
+.big-foto {
+ display: block;
+ position: fixed;
+ top: 0;
+ width:100%;
+ z-index: 3;
+}
+.big-foto .active {
+ background-color: #000000cf;
+ background-size: cover;
+}
+.big-foto .load {
+ width: 64px;
+}
+
+.big-foto img {
+ position: relative;
+ z-index: 3;
+ max-width: 95%;
+ max-height: 95%;
+ margin: auto;
+ padding-top: 2%;
+}
+.big-foto .active span:after {
+ font-family: FontAwesome;
+ content: '\f00d';
+ font-size: 4rem;
+ display: block;
+ transition: 0.2s;
+ color: red;
+}
+
+.big-foto .active span {
+ position: absolute;
+ top: 2rem;
+ right: 2rem;
+ z-index: 4;
+}
+
+.big-foto .active:after:hover {
+ transform: scale(1.8);
+}
+
+.sub-foto-block.sub-4 div {
+ display: inline-block;
+ width: 150px;
+ height: 25px;
+ position: absolute;
+ top: 50%;
+ margin-top: -12.5px;
+ left: 50%;
+ margin-left: -60px;
+}
+.sub-4 a {
+ color: #fe0000;
+}
+.sub-4 {
+ color: #fe0000;
+ font-weight: bold;
+ position: relative;
+}
+.photo-wrp{
+ width: 100%;
+ height: inherit;
+}
+
+
+
 
 @media (max-width: 979px) {
+ .photo-wrp {
+
+  display: table-cell;
+  vertical-align: middle;
+  height: inherit;
+  margin: auto;
+  width: 1%;
+  padding-top: 0px;
+ }
+
  .menu-wrp {
   position:fixed;
  }

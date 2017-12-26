@@ -11091,6 +11091,8 @@ module.exports = g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__vacantions_block_vacantions_block__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__stages_stages__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__review_review__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__clients_photos_photos__ = __webpack_require__(48);
+
 
 
 
@@ -11135,6 +11137,9 @@ module.exports = g;
     });
     this.reviewsDispatch();
     /*получаем отзывы*/
+
+    this.clientsPhotosDispatch();
+    /*получаем фотографии клиентов*/
   },
 
   computed: {
@@ -11175,6 +11180,9 @@ module.exports = g;
     },
     reviewsDispatch: function () {
       return this.$store.dispatch('GET_REVIEWS');
+    },
+    clientsPhotosDispatch: function () {
+      return this.$store.dispatch('GET_CLIENTS_PHOTOS');
     }
   },
   components: {
@@ -11184,7 +11192,8 @@ module.exports = g;
     'overlay': __WEBPACK_IMPORTED_MODULE_5__overlay_overlay__["a" /* default */],
     'vacantions-block': __WEBPACK_IMPORTED_MODULE_6__vacantions_block_vacantions_block__["a" /* default */],
     'stages': __WEBPACK_IMPORTED_MODULE_7__stages_stages__["a" /* default */],
-    'reviews': __WEBPACK_IMPORTED_MODULE_8__review_review__["a" /* default */]
+    'reviews': __WEBPACK_IMPORTED_MODULE_8__review_review__["a" /* default */],
+    'photos': __WEBPACK_IMPORTED_MODULE_9__clients_photos_photos__["a" /* default */]
   }
 }));
 
@@ -11200,7 +11209,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_resource__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_App__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_App__ = __webpack_require__(50);
 
 
 
@@ -16624,6 +16633,7 @@ var index_esm = {
   servicesSliders: [],
   navMenu: [],
   reviews: [],
+  clientsPhotos: [],
   widthScreen: 0,
   heightScreen: 0,
   mainSliderDownload: false,
@@ -16682,6 +16692,20 @@ var index_esm = {
     __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].http.get(get).then(response => {
       console.log(response);
       context.commit('SET_REVIEWS', response.data);
+    });
+  },
+
+  GET_CLIENTS_PHOTOS(context) {
+    let get;
+
+    if (window.location.port === '8082' || window.location.port === '') {
+      get = '/?slider=clients_block';
+    } else {
+      get = '/db/clients_block.json';
+    }
+
+    __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].http.get(get).then(response => {
+      context.commit('SET_CLIENTS_PHOTOS', response.data);
     });
   },
 
@@ -16774,6 +16798,10 @@ var index_esm = {
 
   SET_REVIEWS(state, reviews) {
     state.reviews = reviews;
+  },
+
+  SET_CLIENTS_PHOTOS(state, photos) {
+    state.clientsPhotos = photos;
   }
 
 });
@@ -16884,7 +16912,7 @@ module.exports = "<div>{{message}}</div>";
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section section-1\" :style = \"{'height': $store.getters.heightMainSlider+'px'}\">\n    <main-slider></main-slider>\n        <navigation></navigation>\n    </div>\n    <div class = \"section section-2\" :style = \"heightScreen\">\n        <services-slider></services-slider>\n    </div>\n    <div class=\"section section-3\" :style = \"heightScreen\">\n        <vacantions-block></vacantions-block>\n    </div>\n    <div class=\"section section-4\" :style = \"heightScreen\">\n        <stages></stages>\n    </div>\n    <div class=\"section section-5\" :style = \"heightScreen\">\n        <reviews></reviews>\n    </div>\n</div>";
+module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section section-1\" :style = \"{'height': $store.getters.heightMainSlider+'px'}\">\n    <main-slider></main-slider>\n        <navigation></navigation>\n    </div>\n    <div class = \"section section-2\" :style = \"heightScreen\">\n        <services-slider></services-slider>\n    </div>\n    <div class=\"section section-3\" :style = \"heightScreen\">\n        <vacantions-block></vacantions-block>\n    </div>\n    <div class=\"section section-4\" :style = \"heightScreen\">\n        <stages></stages>\n    </div>\n    <div class=\"section section-5\" :style = \"heightScreen\">\n        <reviews></reviews>\n    </div>\n    <div class=\"section\" :style = \"heightScreen\">\n        <photos></photos>\n    </div>\n</div>";
 
 /***/ }),
 /* 22 */
@@ -17285,8 +17313,6 @@ module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\" :style =
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(0);
-
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   template: __WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html___default.a,
@@ -17317,7 +17343,7 @@ module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\" :style =
         return alert('Вы неправильно заполнили форму, попробуйте еще раз');
       } else {
         this.sendFlag = true;
-        __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.post('email-message', {
+        Vue.http.post('email-message', {
           name: this.emailData.name,
           phoneEmail: this.emailData.number
         }).then(success => {
@@ -17404,11 +17430,6 @@ module.exports = "<div>\n    <a name=\"sec4\"></a>\n    <div class=\"section-tit
     };
   },
 
-  created() {
-    /*this.moduleListen;
-    this.count;*/
-  },
-
   mounted() {
     setTimeout(() => {
       return this.touchEvent();
@@ -17417,13 +17438,12 @@ module.exports = "<div>\n    <a name=\"sec4\"></a>\n    <div class=\"section-tit
 
   computed: {
     count() {
-      return this.slidersCount = this.$store.getters.countReviewSliders;
+      return this.slidersCount = this.$store.state.reviews.length;
     },
 
     moduleListen() {
-      let a;
-      /*this.module!==0&&this.slidersCount!==0?a=Math.abs(this.clickCount % this.slidersCount):a=this.clickCount % this.slidersCount;*/
-
+      this.count;
+      this.module = this.clickCount % this.slidersCount;
       return this.clickCount % this.slidersCount;
     },
 
@@ -17439,24 +17459,16 @@ module.exports = "<div>\n    <a name=\"sec4\"></a>\n    <div class=\"section-tit
   methods: {
     increment() {
       this.clickCount += 1;
-      console.log(this.clickCount, this.module);
-      return;
     },
 
     decrement() {
-      console.log('дикремент');
-      return this.clickCount -= 1;
+      this.clickCount -= 1;
     },
 
     touchEvent() {
       __WEBPACK_IMPORTED_MODULE_4__helpers_touchEvent__["a" /* default */].prototype = this;
-      console.log(this.$store.getters.widthReview, 'геттер');
       let constr = new __WEBPACK_IMPORTED_MODULE_4__helpers_touchEvent__["a" /* default */]('.review-slider', this.$store.getters.widthReview);
       return constr.main();
-    },
-
-    moduleCheck(clickCount, slidersCount) {
-      return this.module = Math.abs(clickCount % slidersCount);
     }
 
   }
@@ -17466,7 +17478,7 @@ module.exports = "<div>\n    <a name=\"sec4\"></a>\n    <div class=\"section-tit
 /* 43 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <div class=\"section-title\">\n        Отзывы клиентов\n    </div>\n    <div class=\"section-subtitle\">\n        Правда с первых уст\n    </div>\n\n    <div class=\"qn\">\n        <span class=\"slide-num\">{{module + 1}}</span>/\n        <span class=\"total\">{{$store.state.reviews.length}}</span>\n    </div>\n    <div class=\"nav-2\">\n        <div class=\"owl-prev-2\" @click = \"decrement\"></div>\n        <div class=\"owl-next-2\" @click = \"increment\"></div>\n    </div>\n\n    <div class=\"hidden-review\">\n\n        <div class=\"review-slider owl-carousel\" :style=\"widthTransform\">\n\n            <div class=\"slide-review\" :style=\"{'width':$store.getters.widthReview+'px'}\" v-for = 'review in $store.state.reviews'>\n                <youtube v-if = \"review.src_type=='youtube'\" :review = 'review'></youtube>\n                <images v-else :review = 'review'></images>\n            </div>\n        </div>\n    </div>\n</div>\n";
+module.exports = "<div>\n    <div class=\"section-title\">\n        Отзывы клиентов\n    </div>\n    <div class=\"section-subtitle\">\n        Правда с первых уст\n    </div>\n\n    <div class=\"qn\">\n        <span class=\"slide-num\">{{moduleListen+1}}</span>/<span class=\"total\">{{$store.state.reviews.length}}</span>\n    </div>\n    <div class=\"nav-2\">\n        <div class=\"owl-prev-2\" @click = \"decrement\"></div>\n        <div class=\"owl-next-2\" @click = \"increment\"></div>\n    </div>\n\n    <div class=\"hidden-review\">\n\n        <div class=\"review-slider owl-carousel\" :style=\"widthTransform\">\n\n            <div class=\"slide-review\" :style=\"{'width':$store.getters.widthReview+'px'}\" v-for = 'review in $store.state.reviews'>\n                <youtube v-if = \"review.src_type=='youtube'\" :review = 'review'></youtube>\n                <images v-else :review = 'review'></images>\n            </div>\n        </div>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 44 */
@@ -17506,7 +17518,7 @@ module.exports = "<div>\n    <div class=\"vid\">\n        <iframe :src=\"review.
   template: __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_image_block_html___default.a,
   computed: {
     imageHeight() {
-      return this.$store.state.widthScreen >= 980 ? this.$store.getters.widthReview * 0.48 / 1.8 * 1.5 : this.$store.getters.widthReview * 1.8 * 1.5;
+      return this.$store.state.widthScreen >= 980 ? this.$store.getters.widthReview * 0.48 / 1.8 * 1.5 : this.$store.getters.widthReview / 1.8 * 1.5;
     }
 
   }
@@ -17523,10 +17535,111 @@ module.exports = "<div>\n    <div class=\"photo\">\n        <img :src=\"review.s
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_photos_photos_html__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_photos_photos_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_photos_photos_html__);
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  template: __WEBPACK_IMPORTED_MODULE_0__build_html_photos_photos_html___default.a,
+
+  data() {
+    return {
+      height: '',
+      photoActive: false,
+      photoLoad: false,
+      big_photo: ''
+    };
+  },
+
+  computed: {
+    resize() {
+      this.height = this.$store.state.widthScreen >= 980 ? screen.availHeight * 0.45 : '';
+      return this.height;
+    }
+
+  },
+
+  mounted() {},
+
+  methods: {
+    active(e) {
+      if (e.target.className === 'close-foto') {
+        this.photoActive = false;
+        this.deleteNode();
+      } else {
+        let a;
+
+        if (this.$store.state.widthScreen < 980) {
+          a = this.$store.state.clientsPhotos.filter(item => {
+            return item.big_foto === e.target.src.match(/img\/.*$/i)[0] ? item.small_foto : false;
+          });
+        } else {
+          a = this.$store.state.clientsPhotos.filter(item => {
+            return item.big_foto === e.target.firstChild.src.match(/img\/.*$/i)[0] ? item.small_foto : false;
+          });
+        }
+
+        this.big_photo = a[0].small_foto;
+      }
+    },
+
+    photoLoadCheck() {
+      if (this.photoActive === false) {
+        return this.createNode();
+      } else {
+        return this.deleteNode();
+      }
+    },
+
+    deleteNode() {
+      this.big_photo = '';
+      this.photoActive = false;
+
+      if (document.querySelector('.big_photo')) {
+        for (let a = 0; a < document.querySelectorAll('.big_photo').length; a++) {
+          document.querySelector('.big-foto .active').removeChild(document.querySelectorAll('.big_photo')[a]);
+        }
+      }
+    },
+
+    createNode() {
+      this.photoActive = true;
+      console.log(this.photoLoad = true);
+      let img = document.createElement('img');
+      img.className = 'big_photo';
+      document.querySelector('.big-foto .active').appendChild(img);
+
+      img.onload = function () {
+        console.log(this.photoLoad, 'djfh', this);
+        this.photoLoad = false;
+      }.bind(this);
+
+      img.src = this.big_photo;
+    }
+
+  },
+  watch: {
+    big_photo() {
+      return this.big_photo !== '' ? this.photoLoadCheck() : '';
+    }
+
+  }
+});
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <div class=\"section-title\">\n        Довольные клиенты\n    </div>\n    <div class=\"section-subtitle\">\n        Люди, которые воспользовались нашими услугами\n    </div>\n\n    <div class=\"client-foto\" v-if=\"$store.state.clientsPhotos.length>0\">\n\n        <div class = 'clients clients-foto foto-block-1' @click =\"active\"\n             :style=\"{\n             'background':`url(../${$store.state.widthScreen>980?$store.state.clientsPhotos[0].big_foto:''})`,\n             'height':`${resize}px`,\n             'background-size': 'cover'\n             }\" >\n            <img :src = \"$store.state.clientsPhotos[0].big_foto\">\n        </div>\n        <div class = 'clients clients-foto foto-block-2' @click =\"active\"\n             :style=\"{\n             'background':`url(../${$store.state.widthScreen>980?$store.state.clientsPhotos[1].big_foto:''})`,\n             'height':`${resize}px`,\n             'background-size': 'cover'\n             }\">\n            <img :src = \"$store.state.clientsPhotos[1].big_foto\">\n        </div>\n        <div class = 'clients clients-foto foto-block-3' :style=\"{'height':`${resize}px`} \">\n            <div class=\"sub-foto-block clients-foto \"\n                 v-for=\"(item,index) in $store.state.clientsPhotos\" v-if = 'index>1' :class=\"'sub-'+(index+1)\" @click ='active'\n                 :style=\"{\n                 'background':`url(../${$store.state.widthScreen>980?item.big_foto:''})`,\n                 'background-size': 'cover'\n                 }\">\n                <img :src=\"item.big_foto\">\n            </div>\n            <div class=\"sub-foto-block sub-4 clients-foto\"><div>\n                <a href=\"https://vk.com/album-135611001_243729185\">Смотреть все (ссылка на ВК)</a></div></div>\n        </div>\n    </div>\n    <div class = 'big-foto' v-show = \"photoActive\">\n        <div class=\"active\" :style = \"{'height': `${$store.state.heightScreen}px`}\">\n\n            <span class=\"close-foto\" @click =\"active\"></span>\n            <img :src = \"'img/load.svg'\" class = 'load' v-show = \"photoLoad\">\n        </div>\n    </div>\n</div>";
+
+/***/ }),
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_vacantions__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__build_html_App_html__);
 
 
@@ -17541,7 +17654,7 @@ module.exports = "<div>\n    <div class=\"photo\">\n        <img :src=\"review.s
 }));
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports) {
 
 module.exports = "<router-view></router-view>";

@@ -1,0 +1,48 @@
+<div>
+    <div class="section-title">
+        Довольные клиенты
+    </div>
+    <div class="section-subtitle">
+        Люди, которые воспользовались нашими услугами
+    </div>
+
+    <div class="client-foto" v-if="$store.state.clientsPhotos.length>0">
+
+        <div class = 'clients clients-foto foto-block-1' @click ="active"
+             :style="{
+             'background':`url(../${$store.state.widthScreen>980?$store.state.clientsPhotos[0].big_foto:''})`,
+             'height':`${resize}px`,
+             'background-size': 'cover'
+             }" >
+            <img :src = "$store.state.clientsPhotos[0].big_foto">
+        </div>
+        <div class = 'clients clients-foto foto-block-2' @click ="active"
+             :style="{
+             'background':`url(../${$store.state.widthScreen>980?$store.state.clientsPhotos[1].big_foto:''})`,
+             'height':`${resize}px`,
+             'background-size': 'cover'
+             }">
+            <img :src = "$store.state.clientsPhotos[1].big_foto">
+        </div>
+        <div class = 'clients clients-foto foto-block-3' :style="{'height':`${resize}px`} ">
+            <div class="sub-foto-block clients-foto "
+                 v-for="(item,index) in $store.state.clientsPhotos" v-if = 'index>1' :class="'sub-'+(index+1)" @click ='active'
+                 :style="{
+                 'background':`url(../${$store.state.widthScreen>980?item.big_foto:''})`,
+                 'background-size': 'cover'
+                 }">
+                <img :src="item.big_foto">
+            </div>
+            <div class="sub-foto-block sub-4 clients-foto"><div>
+                <a href="https://vk.com/album-135611001_243729185">Смотреть все (ссылка на ВК)</a></div></div>
+        </div>
+    </div>
+    <div class = 'big-foto' v-show = "photoActive">
+        <div class="active" :style = "{'height': `${availHeight}px`}">
+
+            <span class="close-foto" @click ="active"></span>
+            <img :src = "'img/load.svg'" class = 'load' v-show = "photoLoad">
+            <div class = 'photo-wrp'></div>
+        </div>
+    </div>
+</div>

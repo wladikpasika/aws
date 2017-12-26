@@ -1660,9 +1660,6 @@ ul.menu {
     z-index: 4;
 }
 
-.big-foto .active div {
-}
-
 .big-foto .active:after:hover {
     transform: scale(1.8);
 }

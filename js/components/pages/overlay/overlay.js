@@ -1,5 +1,4 @@
 import template from "../../../../build/html/overlay/overlay.html"
-import Vue from 'vue';
 
 export default{
     template,

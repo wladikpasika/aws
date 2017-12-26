@@ -26,5 +26,8 @@ export default {
     },
     SET_REVIEWS(state,reviews){
         state.reviews = reviews;
+    },
+    SET_CLIENTS_PHOTOS(state,photos){
+        state.clientsPhotos = photos;
     }
 }

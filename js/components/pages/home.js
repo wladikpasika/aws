@@ -6,7 +6,10 @@ import navigation from './navigation/navigation'
 import overlay from './overlay/overlay'
 import vacantionsBlock from './vacantions-block/vacantions-block'
 import stages from './stages/stages'
-import reviews from "./review/review";
+import reviews from "./review/review"
+import clientsPhotos from "./clients-photos/photos";
+
+
 
 export default Vue.component('home', {
     template,
@@ -40,6 +43,8 @@ export default Vue.component('home', {
         });
        this.reviewsDispatch();
        /*получаем отзывы*/
+       this.clientsPhotosDispatch();
+       /*получаем фотографии клиентов*/
 
     },
     computed:{
@@ -85,8 +90,13 @@ export default Vue.component('home', {
         },
 
         reviewsDispatch:function(){
+
             return this.$store.dispatch('GET_REVIEWS');
-        }
+        },
+        clientsPhotosDispatch:function(){
+
+            return this.$store.dispatch('GET_CLIENTS_PHOTOS');
+        },
 
     },
     components: {
@@ -96,7 +106,8 @@ export default Vue.component('home', {
         'overlay': overlay,
         'vacantions-block': vacantionsBlock,
         'stages': stages,
-        'reviews': reviews
+        'reviews': reviews,
+        'photos': clientsPhotos
     }
 
 });

@@ -8,18 +8,14 @@ export default {
     template,
     data(){
 
-        return{
+        return {
+
             clickCount: 0,
             module: 0,
-            slidersCount:0
+            slidersCount:0,
         }
     },
-    created(){
 
-        this.moduleListen;
-        this.count;
-
-    },
     mounted(){
 
         setTimeout(()=>{return this.touchEvent()},1000)
@@ -27,13 +23,13 @@ export default {
     computed:{
 
         count(){
-          return   this.slidersCount = this.$store.getters.countReviewSliders;
+          return   this.slidersCount = this.$store.state.reviews.length;
         },
 
         moduleListen(){
-            let a;
-            this.module!==0&&this.slidersCount!==0?a=Math.abs(this.clickCount % this.slidersCount):a=this.clickCount % this.slidersCount;
-            return this.module = Math.abs(this.clickCount % this.slidersCount);
+            this.count;
+            this.module = this.clickCount%this.slidersCount;
+            return this.clickCount%this.slidersCount;
         },
 
         widthTransform(){
@@ -51,21 +47,15 @@ export default {
 
         increment(){
             this.clickCount+= 1;
-            console.log(this.clickCount,this.module);
-
-            return;
 
         },
         decrement(){
-            console.log('дикремент');
 
-            return this.clickCount-= 1
-
+            this.clickCount-= 1;
         },
         touchEvent(){
 
             TouchEvent.prototype = this;
-            console.log(this.$store.getters.widthReview, 'геттер');
             let constr = new TouchEvent('.review-slider', this.$store.getters.widthReview);
 
             return constr.main()
