@@ -9,6 +9,7 @@ import stages from './stages/stages'
 import reviews from "./review/review"
 import clientsPhotos from "./clients-photos/photos";
 import about from "./about/about";
+import contacts from "./contacts/contacts";
 
 
 
@@ -48,6 +49,7 @@ export default Vue.component('home', {
        /*получаем фотографии клиентов*/
        /*получаем информацию about*/
        this.aboutDispatch();
+       this.contactsDispatch();
 
     },
     computed:{
@@ -104,6 +106,10 @@ export default Vue.component('home', {
 
             return this.$store.dispatch('GET_ABOUT');
         },
+        contactsDispatch:function(){
+
+            return this.$store.dispatch('GET_CONTACTS');
+        }
 
 
     },
@@ -116,7 +122,8 @@ export default Vue.component('home', {
         'stages': stages,
         'reviews': reviews,
         'photos': clientsPhotos,
-        'about': about
+        'about': about,
+        'contacts': contacts
     }
 
 });

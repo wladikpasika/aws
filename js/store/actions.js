@@ -136,5 +136,21 @@ export default {
             overlayDisplay=true;
         }
         return context.commit('OVERLAY_SET', overlayDisplay);
+    },
+    GET_CONTACTS(context){
+
+        let get;
+
+        if(window.location.port==='8082'||window.location.port===''){
+
+            get = '/?slider=contacts';
+
+        }
+        else {
+            get = '/db/contacts.json';
+        }
+        Vue.http.get(get).then((response) => {
+            context.commit('SET_CONTACTS', response.data)
+        });
     }
 }

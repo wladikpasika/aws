@@ -5,6 +5,7 @@ export default {
     reviews:[],
     clientsPhotos:[],
     about:[],
+    contacts:[],
     widthScreen:0,
     heightScreen:0,
     availHeightScreen:0,

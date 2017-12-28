@@ -35,5 +35,8 @@ export default {
     },
     SET_ABOUT(state,about){
         state.about = about;
-    }
+    },
+    SET_CONTACTS(state,contacts){
+        state.contacts = contacts;
+    },
 }

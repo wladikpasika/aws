@@ -1,4 +1,4 @@
-<div :style = "{'height':$store.state.widthScreen<=500?$store.state.heightScreen+'px':'100%'}">
+<div :style = "{'height': $store.state.widthScreen>500&&$store.state.widthScreen<=979?$store.state.heightScreen*1.2+'px':$store.state.heightScreen+'px'}">
     <div class="about-us-carousel" :style = "widthTransform" v-if="aboutGet">
         <div class="carousel-1 carousel-about" :style="{'width':`${$store.state.widthScreen}px`}">
             <div class="section-title" v-html="aboutInfo[0].title">

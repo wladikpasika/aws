@@ -11093,6 +11093,8 @@ module.exports = g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__review_review__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__clients_photos_photos__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__about_about__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__contacts_contacts__ = __webpack_require__(52);
+
 
 
 
@@ -11146,6 +11148,7 @@ module.exports = g;
     /*получаем информацию about*/
 
     this.aboutDispatch();
+    this.contactsDispatch();
   },
 
   computed: {
@@ -11192,6 +11195,9 @@ module.exports = g;
     },
     aboutDispatch: function () {
       return this.$store.dispatch('GET_ABOUT');
+    },
+    contactsDispatch: function () {
+      return this.$store.dispatch('GET_CONTACTS');
     }
   },
   components: {
@@ -11203,7 +11209,8 @@ module.exports = g;
     'stages': __WEBPACK_IMPORTED_MODULE_7__stages_stages__["a" /* default */],
     'reviews': __WEBPACK_IMPORTED_MODULE_8__review_review__["a" /* default */],
     'photos': __WEBPACK_IMPORTED_MODULE_9__clients_photos_photos__["a" /* default */],
-    'about': __WEBPACK_IMPORTED_MODULE_10__about_about__["a" /* default */]
+    'about': __WEBPACK_IMPORTED_MODULE_10__about_about__["a" /* default */],
+    'contacts': __WEBPACK_IMPORTED_MODULE_11__contacts_contacts__["a" /* default */]
   }
 }));
 
@@ -11219,7 +11226,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_resource__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_App__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_App__ = __webpack_require__(54);
 
 
 
@@ -16645,6 +16652,7 @@ var index_esm = {
   reviews: [],
   clientsPhotos: [],
   about: [],
+  contacts: [],
   widthScreen: 0,
   heightScreen: 0,
   availHeightScreen: 0,
@@ -16783,6 +16791,20 @@ var index_esm = {
     }
 
     return context.commit('OVERLAY_SET', overlayDisplay);
+  },
+
+  GET_CONTACTS(context) {
+    let get;
+
+    if (window.location.port === '8082' || window.location.port === '') {
+      get = '/?slider=contacts';
+    } else {
+      get = '/db/contacts.json';
+    }
+
+    __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].http.get(get).then(response => {
+      context.commit('SET_CONTACTS', response.data);
+    });
   }
 
 });
@@ -16839,6 +16861,10 @@ var index_esm = {
 
   SET_ABOUT(state, about) {
     state.about = about;
+  },
+
+  SET_CONTACTS(state, contacts) {
+    state.contacts = contacts;
   }
 
 });
@@ -16949,7 +16975,7 @@ module.exports = "<div>{{message}}</div>";
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section section-1\" :style = \"{'height': $store.getters.heightMainSlider+'px'}\">\n    <main-slider></main-slider>\n        <navigation></navigation>\n    </div>\n    <div class = \"section section-2\" :style = \"heightScreen\">\n        <services-slider></services-slider>\n    </div>\n    <div class=\"section section-3\" :style = \"heightScreen\">\n        <vacantions-block></vacantions-block>\n    </div>\n    <div class=\"section section-4\" :style = \"heightScreen\">\n        <stages></stages>\n    </div>\n    <div class=\"section section-5\" :style = \"heightScreen\">\n        <reviews></reviews>\n    </div>\n    <div class=\"section\" :style = \"heightScreen\">\n        <photos></photos>\n    </div>\n    <div class=\"section section-6\" :style = \"heightScreen\">\n        <about></about>\n    </div>\n</div>";
+module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section section-1\" :style = \"{'height': $store.getters.heightMainSlider+'px'}\">\n    <main-slider></main-slider>\n        <navigation></navigation>\n    </div>\n    <div class = \"section section-2\" :style = \"heightScreen\">\n        <services-slider></services-slider>\n    </div>\n    <div class=\"section section-3\" :style = \"heightScreen\">\n        <vacantions-block></vacantions-block>\n    </div>\n    <div class=\"section section-4\" :style = \"heightScreen\">\n        <stages></stages>\n    </div>\n    <div class=\"section section-5\" :style = \"heightScreen\">\n        <reviews></reviews>\n    </div>\n    <div class=\"section\" :style = \"heightScreen\">\n        <photos></photos>\n    </div>\n    <div class=\"section section-6\" :style = \"heightScreen\">\n        <about></about>\n    </div>\n    <div class=\"section section-7\" :style = \"heightScreen\">\n        <contacts></contacts>\n    </div>\n</div>";
 
 /***/ }),
 /* 22 */
@@ -17739,17 +17765,35 @@ module.exports = "<div>\n    <div class=\"section-title\">\n        Доволь
 /* 51 */
 /***/ (function(module, exports) {
 
-module.exports = "<div :style = \"{'height':$store.state.widthScreen<=500?$store.state.heightScreen+'px':'100%'}\">\n    <div class=\"about-us-carousel\" :style = \"widthTransform\" v-if=\"aboutGet\">\n        <div class=\"carousel-1 carousel-about\" :style=\"{'width':`${$store.state.widthScreen}px`}\">\n            <div class=\"section-title\" v-html=\"aboutInfo[0].title\">\n            </div>\n            <div class=\"section-subtitle\" v-html=\"aboutInfo[0].description\">\n            </div>\n            <div class=\"row\">\n                <div class=\"sert-col\">\n                    <div class=\"sert\">\n                        <img :src=\"'img/sert-1.jpg'\">\n                    </div>\n                    <div class=\"sert\">\n                        <img :src=\"'img/sert-2.jpg'\">\n                    </div>\n                </div>\n                <div class=\"text-col\">\n                    <div class=\"text-col-inner\" v-html = \"aboutInfo[0].text\">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"carousel-2 carousel-about\" :style=\"{'width':`${$store.state.widthScreen}px`}\">\n            <div class=\"section-title\" v-html=\"aboutInfo[1].title\">\n            </div>\n            <div class=\"section-subtitle\" v-html=\"aboutInfo[1].description\"></div>\n            <div class=\"row\">\n                <div class=\"text-col\">\n                    <div class=\"text-col-inner\" v-html = \"aboutInfo[1].text\"></div>\n                </div>\n            </div>\n        </div>\n        <div style=\"clear:both;\"></div>\n    </div>\n    <div class=\"nav-2\">\n        <div class=\"owl-prev-2\" @click = \"decrement\"></div>\n        <div class=\"owl-next-2\" @click = \"increment\"></div>\n    </div>\n</div>";
+module.exports = "<div :style = \"{'height': $store.state.widthScreen>500&&$store.state.widthScreen<=979?$store.state.heightScreen*1.5+'px':$store.state.heightScreen+'px'}\">\n    <div class=\"about-us-carousel\" :style = \"widthTransform\" v-if=\"aboutGet\">\n        <div class=\"carousel-1 carousel-about\" :style=\"{'width':`${$store.state.widthScreen}px`}\">\n            <div class=\"section-title\" v-html=\"aboutInfo[0].title\">\n            </div>\n            <div class=\"section-subtitle\" v-html=\"aboutInfo[0].description\">\n            </div>\n            <div class=\"row\">\n                <div class=\"sert-col\">\n                    <div class=\"sert\">\n                        <img :src=\"'img/sert-1.jpg'\">\n                    </div>\n                    <div class=\"sert\">\n                        <img :src=\"'img/sert-2.jpg'\">\n                    </div>\n                </div>\n                <div class=\"text-col\">\n                    <div class=\"text-col-inner\" v-html = \"aboutInfo[0].text\">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"carousel-2 carousel-about\" :style=\"{'width':`${$store.state.widthScreen}px`}\">\n            <div class=\"section-title\" v-html=\"aboutInfo[1].title\">\n            </div>\n            <div class=\"section-subtitle\" v-html=\"aboutInfo[1].description\"></div>\n            <div class=\"row\">\n                <div class=\"text-col\">\n                    <div class=\"text-col-inner\" v-html = \"aboutInfo[1].text\"></div>\n                </div>\n            </div>\n        </div>\n        <div style=\"clear:both;\"></div>\n    </div>\n    <div class=\"nav-2\">\n        <div class=\"owl-prev-2\" @click = \"decrement\"></div>\n        <div class=\"owl-next-2\" @click = \"increment\"></div>\n    </div>\n</div>";
 
 /***/ }),
 /* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_contacts_contacts_html__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_contacts_contacts_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_contacts_contacts_html__);
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  template: __WEBPACK_IMPORTED_MODULE_0__build_html_contacts_contacts_html___default.a
+});
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <div class=\"section-title\">\n        Контакты\n    </div>\n    <div class=\"section-subtitle\">\n        Уже сейчас Вы можете изменить свою жизнь - пишите нам\n    </div>\n    <div class=\"map\">\n        <div class=\"contacts\">\n            <p class=\"bold\">ООО \"World Emigration\"</p>\n            <p>\n                г. Харьков, ул. Короленка 25. Офис №4\n                <br>(ст. м. Майдан Конституции, бывшая Советская)\n            </p>\n            <p>\n                <span class=\"main\"><a class=\"phone\" href=\"tel:380662916984\">+38 (066) 291 69 84</a></span>\n                <br><a class=\"phone\" href=\"tel:380737899090\">+38 (073) 789 90 90</a>\n                <br><a class=\"phone\" href=\"tel:380969657229\">+38 (096) 965 72 29</a>\n                <br> Viber: +38 (066) 803 89 14\n                <br>Skype: Fors 7778\n                <br> e-mail: world2016_emig@ukr.net\n            </p>\n            <a href=\"#\" class=\"button\">Обратный звонок</a>\n        </div>\n        <span><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.1284346409016!2d36.23641811571471!3d49.9902014794145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0f21f398e03%3A0x1b7ba7160bc78c6d!2z0LLRg9C70LjRhtGPINCa0L7RgNC-0LvQtdC90LrQsCwgMjUsINCl0LDRgNC60ZbQsiwg0KXQsNGA0LrRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0Yw!5e0!3m2!1suk!2sua!4v1495488974459\" style=\"border:0\" allowfullscreen=\"\"></iframe>\n</span>\n    </div>\n    <footer>\n        Все права защищены © 2017 Работа в Польше, Рабочие визы в Харькове - World Emigration\n        <a href=\"#sec1\"><div class=\"to-top\"></div></a>\n    </footer>\n</div>";
+
+/***/ }),
+/* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_vacantions__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__build_html_App_html__);
 
 
@@ -17764,7 +17808,7 @@ module.exports = "<div :style = \"{'height':$store.state.widthScreen<=500?$store
 }));
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports) {
 
 module.exports = "<router-view></router-view>";
