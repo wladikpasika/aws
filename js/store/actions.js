@@ -120,8 +120,9 @@ export default {
     /*получаем высоту экрана*/
     GET_SCREEN_HEIGHT(context){
         /*передаем высоту в мутацию, потом в хранилище*/
+
         let heightScreen = document.documentElement.clientHeight;
-        let availHeightScreen = screen.availHeight;
+        let availHeightScreen = screen.width>980?heightScreen:screen.availHeight;
         context.commit('SET_SCREEN_HEIGHT', heightScreen);
         context.commit('SET_SCREEN_AVAIL_HEIGHT', availHeightScreen)
     },

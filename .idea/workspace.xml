@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6069059-562e-4038-8f82-24695d8f0018" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/html/contacts/contacts.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/contacts.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/components/pages/contacts/contacts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/about/about.html" afterPath="$PROJECT_DIR$/build/html/about/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/home.html" afterPath="$PROJECT_DIR$/build/html/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/contacts/contacts.html" afterPath="$PROJECT_DIR$/build/html/contacts/contacts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/main-slider/top/contacts.html" afterPath="$PROJECT_DIR$/build/html/main-slider/top/contacts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/overlay/overlay.html" afterPath="$PROJECT_DIR$/build/html/overlay/overlay.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/reviews/youtube-block.html" afterPath="$PROJECT_DIR$/build/html/reviews/youtube-block.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle.js" afterPath="$PROJECT_DIR$/bundle.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle.js.map" afterPath="$PROJECT_DIR$/bundle.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/styleVue.css" afterPath="$PROJECT_DIR$/css/styleVue.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/components/pages/home.js" afterPath="$PROJECT_DIR$/js/components/pages/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/contacts.json" afterPath="$PROJECT_DIR$/db/contacts.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/components/pages/contacts/contacts.js" afterPath="$PROJECT_DIR$/js/components/pages/contacts/contacts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/components/pages/review/youtube-block.js" afterPath="$PROJECT_DIR$/js/components/pages/review/youtube-block.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/store/actions.js" afterPath="$PROJECT_DIR$/js/store/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/store/mutations.js" afterPath="$PROJECT_DIR$/js/store/mutations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/store/state.js" afterPath="$PROJECT_DIR$/js/store/state.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,18 +29,8 @@
       <file leaf-file-name="styleVue.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/styleVue.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="1645" column="2" lean-forward="true" selection-start-line="1645" selection-start-column="2" selection-end-line="1645" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contacts.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/contacts.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="101" lean-forward="false" selection-start-line="0" selection-start-column="101" selection-end-line="0" selection-end-column="101" />
+            <state relative-caret-position="198">
+              <caret line="1366" column="27" lean-forward="false" selection-start-line="1366" selection-start-column="27" selection-end-line="1366" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -51,8 +39,8 @@
       <file leaf-file-name="contacts.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/html/contacts/contacts.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+            <state relative-caret-position="177">
+              <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#iframe#0;n#span#0;n#div#2;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -60,7 +48,77 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="contacts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/components/pages/contacts/contacts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="64" lean-forward="false" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="top-template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/html/main-slider/top-template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="youtube-block.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/components/pages/review/youtube-block.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="47">
+              <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="youtube-block.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build/html/reviews/youtube-block.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-75">
+              <caret line="2" column="111" lean-forward="false" selection-start-line="2" selection-start-column="111" selection-end-line="2" selection-end-column="111" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="photos.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/components/pages/clients-photos/photos.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1134">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main-slider.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/html/main-slider/main-slider.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="overlay.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/html/overlay/overlay.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/html/about/about.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
@@ -70,48 +128,6 @@
                 <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="1287" column="0" lean-forward="true" selection-start-line="1275" selection-start-column="0" selection-end-line="1292" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contacts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/components/pages/contacts/contacts.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/components/pages/home.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mutations.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/store/mutations.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="36" column="28" lean-forward="true" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -131,7 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>touchEvent</find>
       <find>transform</find>
       <find>.section-5 .owl-prev-2 {</find>
       <find>widthSlidersBlock</find>
@@ -161,6 +176,7 @@
       <find>row</find>
       <find>section-7</find>
       <find>.section</find>
+      <find>sta</find>
     </findStrings>
     <replaceStrings>
       <replace>nav</replace>
@@ -184,7 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/custom-node-modules/Email/config.json" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/custom-node-modules/Email/parsePostMessage.js" />
@@ -201,9 +216,7 @@
         <option value="$PROJECT_DIR$/db/package.json" />
         <option value="$PROJECT_DIR$/js/components/pages/services-sliders/services-sliders.js" />
         <option value="$PROJECT_DIR$/db/reviews.json" />
-        <option value="$PROJECT_DIR$/build/html/reviews/youtube-block.html" />
         <option value="$PROJECT_DIR$/build/html/reviews/image-block.html" />
-        <option value="$PROJECT_DIR$/js/components/pages/review/youtube-block.js" />
         <option value="$PROJECT_DIR$/js/components/pages/main-slider/main-slider.js" />
         <option value="$PROJECT_DIR$/js/store/getters.js" />
         <option value="$PROJECT_DIR$/js/components/pages/review/image-block.js" />
@@ -214,7 +227,6 @@
         <option value="$PROJECT_DIR$/build/html/clients-photos/photos.html" />
         <option value="$PROJECT_DIR$/js/components/pages/clients-photos/clients-photos.js" />
         <option value="$PROJECT_DIR$/js/components/pages/overlay/overlay.js" />
-        <option value="$PROJECT_DIR$/build/html/overlay/overlay.html" />
         <option value="$PROJECT_DIR$/build/html/navigation/navigation.html" />
         <option value="$PROJECT_DIR$/build/html/photos/photos.html" />
         <option value="$PROJECT_DIR$/js/components/pages/clients-photos/photos.js" />
@@ -226,15 +238,19 @@
         <option value="$PROJECT_DIR$/db/about.json" />
         <option value="$PROJECT_DIR$/js/store/state.js" />
         <option value="$PROJECT_DIR$/db/contacts.js" />
-        <option value="$PROJECT_DIR$/js/store/actions.js" />
         <option value="$PROJECT_DIR$/js/store/mutations.js" />
         <option value="$PROJECT_DIR$/js/components/pages/home.js" />
         <option value="$PROJECT_DIR$/build/html/home.html" />
-        <option value="$PROJECT_DIR$/db/contacts.json" />
-        <option value="$PROJECT_DIR$/build/html/contacts/contacts.html" />
-        <option value="$PROJECT_DIR$/js/components/pages/contacts/contacts.js" />
-        <option value="$PROJECT_DIR$/css/styleVue.css" />
         <option value="$PROJECT_DIR$/build/html/about/about.html" />
+        <option value="$PROJECT_DIR$/db/contacts.json" />
+        <option value="$PROJECT_DIR$/css/styleVue.css" />
+        <option value="$PROJECT_DIR$/build/html/main-slider/top/contacts.html" />
+        <option value="$PROJECT_DIR$/build/html/overlay/overlay.html" />
+        <option value="$PROJECT_DIR$/js/store/actions.js" />
+        <option value="$PROJECT_DIR$/build/html/contacts/contacts.html" />
+        <option value="$PROJECT_DIR$/js/components/pages/review/youtube-block.js" />
+        <option value="$PROJECT_DIR$/js/components/pages/contacts/contacts.js" />
+        <option value="$PROJECT_DIR$/build/html/reviews/youtube-block.html" />
       </list>
     </option>
   </component>
@@ -256,7 +272,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="75" />
     <option name="y" value="6" />
     <option name="width" value="1301" />
@@ -305,19 +321,48 @@
               <item name="vue-work-in-poland" type="462c0819:PsiDirectoryNode" />
               <item name="build" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="about" type="462c0819:PsiDirectoryNode" />
+              <item name="contacts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vue-work-in-poland" type="b2602c69:ProjectViewProjectNode" />
               <item name="vue-work-in-poland" type="462c0819:PsiDirectoryNode" />
               <item name="build" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="contacts" type="462c0819:PsiDirectoryNode" />
+              <item name="reviews" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vue-work-in-poland" type="b2602c69:ProjectViewProjectNode" />
               <item name="vue-work-in-poland" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-work-in-poland" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-work-in-poland" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-work-in-poland" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-work-in-poland" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-work-in-poland" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-work-in-poland" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="clients-photos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vue-work-in-poland" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue-work-in-poland" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="review" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -433,7 +478,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="793133000" />
+    <option name="totallyTimeSpent" value="805353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -445,7 +490,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="6" width="1303" height="780" extended-state="6" />
+    <frame x="75" y="6" width="1303" height="780" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24491392" sideWeight="0.6699029" order="0" side_tool="false" content_ui="combo" />
@@ -543,21 +588,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/custom-node-modules/Email/sendEmail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="35" column="36" lean-forward="false" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom-node-modules/Email/parsePostMessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../rabota-v-polshe - сайт старый/index-1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2754">
@@ -651,26 +681,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/components/pages/review/youtube-block.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="8" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="9" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/components/pages/review/image-block.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/html/reviews/youtube-block.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="71" lean-forward="false" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
           <folding />
         </state>
       </provider>
@@ -735,26 +749,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/html/main-slider/main-slider.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="59" lean-forward="false" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/components/pages/overlay/overlay.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/html/overlay/overlay.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-327">
-          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -812,7 +810,7 @@
         <state relative-caret-position="-422">
           <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="20" selection-end-column="6" />
           <folding>
-            <element signature="e#0#66#0" expanded="true" />
+            <element signature="e#0#66#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -822,7 +820,7 @@
         <state relative-caret-position="-494">
           <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
-            <element signature="e#0#62#0" expanded="true" />
+            <element signature="e#0#62#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -847,22 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/store/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="153" column="11" lean-forward="true" selection-start-line="153" selection-start-column="11" selection-end-line="153" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/components/pages/clients-photos/photos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="64" />
           <folding />
         </state>
       </provider>
@@ -901,40 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/components/pages/contacts/contacts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/contacts.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="101" lean-forward="false" selection-start-line="0" selection-start-column="101" selection-end-line="0" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/html/contacts/contacts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#span#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/styleVue.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="1645" column="2" lean-forward="true" selection-start-line="1645" selection-start-column="2" selection-end-line="1645" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/html/about/about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -944,6 +892,104 @@
             <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/contacts.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="730" lean-forward="true" selection-start-line="0" selection-start-column="730" selection-end-line="0" selection-end-column="730" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/styleVue.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="1366" column="27" lean-forward="false" selection-start-line="1366" selection-start-column="27" selection-end-line="1366" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/html/overlay/overlay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/html/main-slider/main-slider.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/store/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2016">
+          <caret line="124" column="44" lean-forward="false" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/html/main-slider/top/contacts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/html/main-slider/top-template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/html/contacts/contacts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#span#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/components/pages/contacts/contacts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="64" lean-forward="false" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/components/pages/review/youtube-block.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/components/pages/clients-photos/photos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1134">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/html/reviews/youtube-block.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="2" column="111" lean-forward="false" selection-start-line="2" selection-start-column="111" selection-end-line="2" selection-end-column="111" />
+          <folding />
         </state>
       </provider>
     </entry>

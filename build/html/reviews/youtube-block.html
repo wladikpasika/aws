@@ -1,6 +1,7 @@
 <div>
     <div class="vid">
-        <iframe :src="review.src" allowfullscreen="" :style="{'height':videoHeight+'px'}"></iframe>
+        <iframe  v-if = "youTybeLoad" :src="review.src" allowfullscreen="" :style="{'height':videoHeight+'px'}"></iframe>
+        <div v-else class = "load"><img src ="/img/load.svg"></div>
     </div>
     <div class="vid-text">
         <div class="vid-text-inner">
