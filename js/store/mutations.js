@@ -12,6 +12,9 @@ export default {
     SET_SCREEN_HEIGHT(state, heightScreen){
         state.heightScreen = heightScreen;
     },
+    SET_SCREEN_AVAIL_HEIGHT (state, availHeightScreen){
+        state.availHeightScreen = availHeightScreen;
+    },
     SET_SERVICES_SLIDERS_DOWNLOAD(state,servicesSliderDownload){
         state.servicesSliderDownload = servicesSliderDownload;
     },
@@ -29,5 +32,8 @@ export default {
     },
     SET_CLIENTS_PHOTOS(state,photos){
         state.clientsPhotos = photos;
+    },
+    SET_ABOUT(state,about){
+        state.about = about;
     }
 }

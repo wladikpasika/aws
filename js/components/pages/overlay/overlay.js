@@ -6,7 +6,7 @@ export default{
       return{
           emailData:{
               name:'',
-              number:''
+              number:'',
           },
           thanksBlock:false,
           sendFlag:false,

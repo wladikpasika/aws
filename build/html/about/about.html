@@ -1,0 +1,39 @@
+<div :style = "{'height':$store.state.widthScreen<=500?$store.state.heightScreen+'px':'100%'}">
+    <div class="about-us-carousel" :style = "widthTransform" v-if="aboutGet">
+        <div class="carousel-1 carousel-about" :style="{'width':`${$store.state.widthScreen}px`}">
+            <div class="section-title" v-html="aboutInfo[0].title">
+            </div>
+            <div class="section-subtitle" v-html="aboutInfo[0].description">
+            </div>
+            <div class="row">
+                <div class="sert-col">
+                    <div class="sert">
+                        <img :src="'img/sert-1.jpg'">
+                    </div>
+                    <div class="sert">
+                        <img :src="'img/sert-2.jpg'">
+                    </div>
+                </div>
+                <div class="text-col">
+                    <div class="text-col-inner" v-html = "aboutInfo[0].text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-2 carousel-about" :style="{'width':`${$store.state.widthScreen}px`}">
+            <div class="section-title" v-html="aboutInfo[1].title">
+            </div>
+            <div class="section-subtitle" v-html="aboutInfo[1].description"></div>
+            <div class="row">
+                <div class="text-col">
+                    <div class="text-col-inner" v-html = "aboutInfo[1].text"></div>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="nav-2">
+        <div class="owl-prev-2" @click = "decrement"></div>
+        <div class="owl-next-2" @click = "increment"></div>
+    </div>
+</div>

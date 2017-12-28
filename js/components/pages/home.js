@@ -8,6 +8,7 @@ import vacantionsBlock from './vacantions-block/vacantions-block'
 import stages from './stages/stages'
 import reviews from "./review/review"
 import clientsPhotos from "./clients-photos/photos";
+import about from "./about/about";
 
 
 
@@ -45,6 +46,8 @@ export default Vue.component('home', {
        /*получаем отзывы*/
        this.clientsPhotosDispatch();
        /*получаем фотографии клиентов*/
+       /*получаем информацию about*/
+       this.aboutDispatch();
 
     },
     computed:{
@@ -97,6 +100,11 @@ export default Vue.component('home', {
 
             return this.$store.dispatch('GET_CLIENTS_PHOTOS');
         },
+        aboutDispatch:function(){
+
+            return this.$store.dispatch('GET_ABOUT');
+        },
+
 
     },
     components: {
@@ -107,7 +115,8 @@ export default Vue.component('home', {
         'vacantions-block': vacantionsBlock,
         'stages': stages,
         'reviews': reviews,
-        'photos': clientsPhotos
+        'photos': clientsPhotos,
+        'about': about
     }
 
 });

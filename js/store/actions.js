@@ -51,6 +51,23 @@ export default {
             context.commit('SET_REVIEWS', response.data)
         });
     },
+    GET_ABOUT(context){
+        let get;
+
+        if(window.location.port==='8082'||window.location.port===''){
+
+            get = '/?slider=about';
+
+        }
+        else {
+            get = '/db/about.json';
+        }
+        Vue.http.get(get).then((response) => {
+            console.log(response);
+            context.commit('SET_ABOUT', response.data)
+        });
+
+    },
     GET_CLIENTS_PHOTOS(context) {
 
         let get;
@@ -104,7 +121,9 @@ export default {
     GET_SCREEN_HEIGHT(context){
         /*передаем высоту в мутацию, потом в хранилище*/
         let heightScreen = document.documentElement.clientHeight;
+        let availHeightScreen = screen.availHeight;
         context.commit('SET_SCREEN_HEIGHT', heightScreen);
+        context.commit('SET_SCREEN_AVAIL_HEIGHT', availHeightScreen)
     },
     OVERLAY_GET(context){
 

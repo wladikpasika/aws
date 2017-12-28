@@ -7,9 +7,9 @@
         Гарантировано качество, скорость и 100% результата
     </div>
     <div class = "wrp">
-        <div class = "row" v-bind:style = "widthSlidersBlock">
+        <div class = "row" :style = "widthSlidersBlock">
         <div class = "service-cart"
-             v-for="item in $store.state.servicesSliders" v-bind:style = "widthServicesCard">
+             v-for="item in $store.state.servicesSliders" :style = "widthServicesCard">
             <div class = "serv">
                 <div class = "front">
                     <img :src= "item.img">

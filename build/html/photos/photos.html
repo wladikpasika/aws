@@ -38,8 +38,7 @@
         </div>
     </div>
     <div class = 'big-foto' v-show = "photoActive">
-        <div class="active" :style = "{'height': `${availHeight}px`}">
-
+        <div class="active" :style = "{'height': `${$store.state.availHeightScreen}px`}">
             <span class="close-foto" @click ="active"></span>
             <img :src = "'img/load.svg'" class = 'load' v-show = "photoLoad">
             <div class = 'photo-wrp'></div>

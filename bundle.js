@@ -10699,10 +10699,31 @@ function getOuterHTML(el) {
 
 Vue$3.compile = compileToFunctions;
 /* harmony default export */ __webpack_exports__["a"] = (Vue$3);
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(4), __webpack_require__(8).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2), __webpack_require__(4), __webpack_require__(8).setImmediate))
 
 /***/ }),
 /* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = transform;
+function transform(widthSlider, module, count, delta) {
+  if (delta && widthSlider !== 'auto') {
+    if (module === 0) {
+      return "translate3d(" + (0 - delta / 5) + "px, 0px, 0px)";
+    } else {
+      return "translate3d(" + -(module * widthSlider + delta / 5) + "px, 0px, 0px)";
+    }
+  } else {
+    return {
+      width: widthSlider !== 'auto' ? widthSlider * count + "px" : 'auto',
+      transform: widthSlider !== 'auto' ? "translate3d(" + -widthSlider * module + "px, 0px, 0px)" : 'translated3d( 0px,0px,0px'
+    };
+  }
+}
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -10915,32 +10936,11 @@ process.umask = function () {
 };
 
 /***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = transform;
-function transform(widthSlider, module, count, delta) {
-  if (delta && widthSlider !== 'auto') {
-    if (module === 0) {
-      return "translate3d(" + (0 - delta / 5) + "px, 0px, 0px)";
-    } else {
-      return "translate3d(" + -(module * widthSlider + delta / 5) + "px, 0px, 0px)";
-    }
-  } else {
-    return {
-      width: widthSlider !== 'auto' ? widthSlider * count + "px" : 'auto',
-      transform: widthSlider !== 'auto' ? "translate3d(" + -widthSlider * module + "px, 0px, 0px)" : 'translated3d( 0px,0px,0px'
-    };
-  }
-}
-
-/***/ }),
 /* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__transform__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__transform__ = __webpack_require__(1);
 
 /* harmony default export */ __webpack_exports__["a"] = (function (elem, widthScreen) {
   let x;
@@ -10964,7 +10964,7 @@ function transform(widthSlider, module, count, delta) {
     } else {
       if (this.module === (Math.abs(this.countScreen - 1) || Math.abs(this.slidersCount - 1))) {
         document.querySelector(elem).style.transform = Object(__WEBPACK_IMPORTED_MODULE_0__transform__["a" /* default */])(widthScreen, this.module, this.countScreen || this.slidersCount, delta);
-      } else if (this.module < this.slidersCount - 1) {
+      } else if (this.module < (this.countScreen - 1 || this.slidersCount - 1)) {
         right = true;
       }
     }
@@ -11092,6 +11092,8 @@ module.exports = g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__stages_stages__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__review_review__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__clients_photos_photos__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__about_about__ = __webpack_require__(50);
+
 
 
 
@@ -11140,6 +11142,10 @@ module.exports = g;
 
     this.clientsPhotosDispatch();
     /*получаем фотографии клиентов*/
+
+    /*получаем информацию about*/
+
+    this.aboutDispatch();
   },
 
   computed: {
@@ -11183,6 +11189,9 @@ module.exports = g;
     },
     clientsPhotosDispatch: function () {
       return this.$store.dispatch('GET_CLIENTS_PHOTOS');
+    },
+    aboutDispatch: function () {
+      return this.$store.dispatch('GET_ABOUT');
     }
   },
   components: {
@@ -11193,7 +11202,8 @@ module.exports = g;
     'vacantions-block': __WEBPACK_IMPORTED_MODULE_6__vacantions_block_vacantions_block__["a" /* default */],
     'stages': __WEBPACK_IMPORTED_MODULE_7__stages_stages__["a" /* default */],
     'reviews': __WEBPACK_IMPORTED_MODULE_8__review_review__["a" /* default */],
-    'photos': __WEBPACK_IMPORTED_MODULE_9__clients_photos_photos__["a" /* default */]
+    'photos': __WEBPACK_IMPORTED_MODULE_9__clients_photos_photos__["a" /* default */],
+    'about': __WEBPACK_IMPORTED_MODULE_10__about_about__["a" /* default */]
   }
 }));
 
@@ -11209,7 +11219,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_resource__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_App__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_App__ = __webpack_require__(52);
 
 
 
@@ -11497,7 +11507,7 @@ exports.clearImmediate = clearImmediate;
   attachTo.setImmediate = setImmediate;
   attachTo.clearImmediate = clearImmediate;
 })(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(2)))
 
 /***/ }),
 /* 10 */
@@ -14069,7 +14079,7 @@ if (inBrowser && window.Vue) {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (VueRouter);
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
 /* 11 */
@@ -16621,7 +16631,7 @@ var index_esm = {
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (index_esm);
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
 /* 15 */
@@ -16634,8 +16644,10 @@ var index_esm = {
   navMenu: [],
   reviews: [],
   clientsPhotos: [],
+  about: [],
   widthScreen: 0,
   heightScreen: 0,
+  availHeightScreen: 0,
   mainSliderDownload: false,
   servicesSliderDownload: false,
   overlayDisplay: false
@@ -16695,6 +16707,21 @@ var index_esm = {
     });
   },
 
+  GET_ABOUT(context) {
+    let get;
+
+    if (window.location.port === '8082' || window.location.port === '') {
+      get = '/?slider=about';
+    } else {
+      get = '/db/about.json';
+    }
+
+    __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].http.get(get).then(response => {
+      console.log(response);
+      context.commit('SET_ABOUT', response.data);
+    });
+  },
+
   GET_CLIENTS_PHOTOS(context) {
     let get;
 
@@ -16741,7 +16768,9 @@ var index_esm = {
   GET_SCREEN_HEIGHT(context) {
     /*передаем высоту в мутацию, потом в хранилище*/
     let heightScreen = document.documentElement.clientHeight;
+    let availHeightScreen = screen.availHeight;
     context.commit('SET_SCREEN_HEIGHT', heightScreen);
+    context.commit('SET_SCREEN_AVAIL_HEIGHT', availHeightScreen);
   },
 
   OVERLAY_GET(context) {
@@ -16780,6 +16809,10 @@ var index_esm = {
     state.heightScreen = heightScreen;
   },
 
+  SET_SCREEN_AVAIL_HEIGHT(state, availHeightScreen) {
+    state.availHeightScreen = availHeightScreen;
+  },
+
   SET_SERVICES_SLIDERS_DOWNLOAD(state, servicesSliderDownload) {
     state.servicesSliderDownload = servicesSliderDownload;
   },
@@ -16802,6 +16835,10 @@ var index_esm = {
 
   SET_CLIENTS_PHOTOS(state, photos) {
     state.clientsPhotos = photos;
+  },
+
+  SET_ABOUT(state, about) {
+    state.about = about;
   }
 
 });
@@ -16912,7 +16949,7 @@ module.exports = "<div>{{message}}</div>";
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section section-1\" :style = \"{'height': $store.getters.heightMainSlider+'px'}\">\n    <main-slider></main-slider>\n        <navigation></navigation>\n    </div>\n    <div class = \"section section-2\" :style = \"heightScreen\">\n        <services-slider></services-slider>\n    </div>\n    <div class=\"section section-3\" :style = \"heightScreen\">\n        <vacantions-block></vacantions-block>\n    </div>\n    <div class=\"section section-4\" :style = \"heightScreen\">\n        <stages></stages>\n    </div>\n    <div class=\"section section-5\" :style = \"heightScreen\">\n        <reviews></reviews>\n    </div>\n    <div class=\"section\" :style = \"heightScreen\">\n        <photos></photos>\n    </div>\n</div>";
+module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section section-1\" :style = \"{'height': $store.getters.heightMainSlider+'px'}\">\n    <main-slider></main-slider>\n        <navigation></navigation>\n    </div>\n    <div class = \"section section-2\" :style = \"heightScreen\">\n        <services-slider></services-slider>\n    </div>\n    <div class=\"section section-3\" :style = \"heightScreen\">\n        <vacantions-block></vacantions-block>\n    </div>\n    <div class=\"section section-4\" :style = \"heightScreen\">\n        <stages></stages>\n    </div>\n    <div class=\"section section-5\" :style = \"heightScreen\">\n        <reviews></reviews>\n    </div>\n    <div class=\"section\" :style = \"heightScreen\">\n        <photos></photos>\n    </div>\n    <div class=\"section section-6\" :style = \"heightScreen\">\n        <about></about>\n    </div>\n</div>";
 
 /***/ }),
 /* 22 */
@@ -16923,7 +16960,7 @@ module.exports = "<div>\n    <overlay></overlay>\n    <div class = \"section sec
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_main_slider_main_slider_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_main_slider_main_slider_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__navigation__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__top_js__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_transform__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_transform__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helpers_touchEvent__ = __webpack_require__(3);
 
 
@@ -17161,7 +17198,7 @@ module.exports = "<a class = \"logo\"><img src=\"/img/logo.png\"></a>";
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_services_sliders_services_slider_html__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_services_sliders_services_slider_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_services_sliders_services_slider_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_transform__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_transform__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_touchEvent__ = __webpack_require__(3);
 
 
@@ -17239,7 +17276,7 @@ module.exports = "<a class = \"logo\"><img src=\"/img/logo.png\"></a>";
 /* 33 */
 /***/ (function(module, exports) {
 
-module.exports = "<div v-if=\"!$store.state.servicesSliderDownload\">\n    <a name=\"sec2\"></a>\n    <div class=\"section-title\">\n        <h1>Наши услуги по трудоустройству в Польше</h1>\n    </div>\n    <div class=\"section-subtitle\">\n        Гарантировано качество, скорость и 100% результата\n    </div>\n    <div class = \"wrp\">\n        <div class = \"row\" v-bind:style = \"widthSlidersBlock\">\n        <div class = \"service-cart\"\n             v-for=\"item in $store.state.servicesSliders\" v-bind:style = \"widthServicesCard\">\n            <div class = \"serv\">\n                <div class = \"front\">\n                    <img :src= \"item.img\">\n                    <div class = \"content\">\n                        <div class = \"title\">{{item.title}}</div>\n                        <div class = \"button-price\">\n                            <div class=\"price-on-card\">\n                                <p>Стоимость услуги:</p>\n                                <p>{{item.price}} {{item.currency}}</p>\n                            </div>\n                            <a href=\"#\" class=\"button\" @click = '(e)=>{return vShowClickOnButton(e)}'>\n                                Подробнее\n                            </a>\n                        </div>\n                    </div>\n                </div>\n                <div class = \"back\">\n                    <div class = \"close\" @click = '(e)=>{return vShowClickOnClose(e)}'></div>\n                    <div v-html=\"item.description\"></div>\n                </div>\n            </div>\n        </div>\n\n        </div>\n\n    </div>\n    <div class=\"nav-2\">\n        <div class=\"owl-prev-2\" @click = \"clickCount -=1\"></div>\n        <div class=\"owl-next-2\" @click = \"clickCount +=1\"></div>\n    </div>\n</div>\n<div v-else class = \"load\"><img src =\"/img/load.svg\"></div>";
+module.exports = "<div v-if=\"!$store.state.servicesSliderDownload\">\n    <a name=\"sec2\"></a>\n    <div class=\"section-title\">\n        <h1>Наши услуги по трудоустройству в Польше</h1>\n    </div>\n    <div class=\"section-subtitle\">\n        Гарантировано качество, скорость и 100% результата\n    </div>\n    <div class = \"wrp\">\n        <div class = \"row\" :style = \"widthSlidersBlock\">\n        <div class = \"service-cart\"\n             v-for=\"item in $store.state.servicesSliders\" :style = \"widthServicesCard\">\n            <div class = \"serv\">\n                <div class = \"front\">\n                    <img :src= \"item.img\">\n                    <div class = \"content\">\n                        <div class = \"title\">{{item.title}}</div>\n                        <div class = \"button-price\">\n                            <div class=\"price-on-card\">\n                                <p>Стоимость услуги:</p>\n                                <p>{{item.price}} {{item.currency}}</p>\n                            </div>\n                            <a href=\"#\" class=\"button\" @click = '(e)=>{return vShowClickOnButton(e)}'>\n                                Подробнее\n                            </a>\n                        </div>\n                    </div>\n                </div>\n                <div class = \"back\">\n                    <div class = \"close\" @click = '(e)=>{return vShowClickOnClose(e)}'></div>\n                    <div v-html=\"item.description\"></div>\n                </div>\n            </div>\n        </div>\n\n        </div>\n\n    </div>\n    <div class=\"nav-2\">\n        <div class=\"owl-prev-2\" @click = \"clickCount -=1\"></div>\n        <div class=\"owl-next-2\" @click = \"clickCount +=1\"></div>\n    </div>\n</div>\n<div v-else class = \"load\"><img src =\"/img/load.svg\"></div>";
 
 /***/ }),
 /* 34 */
@@ -17304,7 +17341,7 @@ module.exports = "<div v-if=\"!$store.state.servicesSliderDownload\">\n    <a na
 /* 35 */
 /***/ (function(module, exports) {
 
-module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\" :style = \"{'max-height':$store.state.heightScreen+'px'}\">\n    <nav>\n        <div :class=\"mobMenuActive?'mob-menu active':'mob-menu'\" @click = 'mobMenuCheck'>\n            <span></span>\n        </div>\n    </nav>\n    <div :class = \"mobMenuActive?'menu-nav active':'menu-nav'\">\n        <ul :class = \"mobMenuActive?'menu active':'menu'\">\n            <li v-for =\"item in $store.state.navMenu\" :data-menuanchor = \"item.link\">\n                <a :src = \"item.link\">{{item.title}}</a></li>\n            <div class = \"button\" @click = 'overlayDisplay'>\n                Оставить заявку\n            </div>\n        </ul>\n    </div>\n</div>\n";
+module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\" :style = \"{'max-height':$store.state.availHeightScreen+'px'}\">\n    <nav>\n        <div :class=\"mobMenuActive?'mob-menu active':'mob-menu'\" @click = 'mobMenuCheck'>\n            <span></span>\n        </div>\n    </nav>\n    <div :class = \"mobMenuActive?'menu-nav active':'menu-nav'\">\n        <ul :class = \"mobMenuActive?'menu active':'menu'\">\n            <li v-for =\"item in $store.state.navMenu\" :data-menuanchor = \"item.link\">\n                <a :src = \"item.link\">{{item.title}}</a></li>\n            <div class = \"button\" @click = 'overlayDisplay'>\n                Оставить заявку\n            </div>\n        </ul>\n    </div>\n</div>\n";
 
 /***/ }),
 /* 36 */
@@ -17365,7 +17402,7 @@ module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\" :style =
 /* 37 */
 /***/ (function(module, exports) {
 
-module.exports = "<div :class=\"!$store.state.overlayDisplay?'overlay':'overlay active'\"\n     :style=\"{\n'max-height': $store.state.heightScreen+'px'}\">\n    <div class=\"popup-close\" @click = \"overlayDisplay\"></div>\n    <div class=\"popup\" style=\"display: block;\">\n        <div class=\"popup-inner\" v-if = \"!sendFlag\">\n            <div id=\"formNotSend\" v-show = \"!thanksBlock\">\n                <div class=\"section-title\">\n                    Напишите нам\n                </div>\n                <div class=\"section-subtitle\">\n                    Если у вас остались вопросы, оставьте ваш номер телефона, и мы перезвоним в ближайшее время\n                </div>\n                <form id=\"form\">\n                    <input type=\"text\" name=\"name\" placeholder=\"Ваше имя\" v-model = 'emailData.name'>\n                    <input type=\"text\" name=\"phone\" placeholder=\"Телефон или email\" v-model = 'emailData.number'>\n                    <button type=\"submit\" @click=\"sendEmail\">Отправить</button>\n                </form>\n            </div>\n            <div id=\"forSend\" v-show=\"thanksBlock\">\n                <div class=\"section-title\">\n                    <span v-if=\"successSend\">Заявка успешно отправлена!</span>\n                    <span v-else>Произошла ошибка отправки данных!</span>\n                </div>\n                <div class=\"section-subtitle\">\n                    <span v-if=\"successSend\">Если контакты указаны правильно, мы свяжемся с Вами в ближайшее время.</span>\n                    <span v-else>Заявка не оправлена, просим воспользоваться электронной почтой: world2016_emig@ukr.net,\n                        <p>или позвонить по номеру телефона: +38 (066)-291-69-84.</p>\n                        <p>Извините за временные неудобства!</p></span>\n                </div>\n\n            </div>\n        </div>\n        <div v-else class = \"load\">\n            <img src =\"/img/load.svg\">\n        </div>\n    </div>\n</div>";
+module.exports = "<div :class=\"!$store.state.overlayDisplay?'overlay':'overlay active'\"\n     :style=\"{\n'max-height': `${$store.state.availHeightScreen}px`}\">\n    <div class=\"popup-close\" @click = \"overlayDisplay\"></div>\n    <div class=\"popup\" style=\"display: block;\">\n        <div class=\"popup-inner\" v-if = \"!sendFlag\">\n            <div id=\"formNotSend\" v-show = \"!thanksBlock\">\n                <div class=\"section-title\">\n                    Напишите нам\n                </div>\n                <div class=\"section-subtitle\">\n                    Если у вас остались вопросы, оставьте ваш номер телефона, и мы перезвоним в ближайшее время\n                </div>\n                <form id=\"form\">\n                    <input type=\"text\" name=\"name\" placeholder=\"Ваше имя\" v-model = 'emailData.name'>\n                    <input type=\"text\" name=\"phone\" placeholder=\"Телефон или email\" v-model = 'emailData.number'>\n                    <button type=\"submit\" @click=\"sendEmail\">Отправить</button>\n                </form>\n            </div>\n            <div id=\"forSend\" v-show=\"thanksBlock\">\n                <div class=\"section-title\">\n                    <span v-if=\"successSend\">Заявка успешно отправлена!</span>\n                    <span v-else>Произошла ошибка отправки данных!</span>\n                </div>\n                <div class=\"section-subtitle\">\n                    <span v-if=\"successSend\">Если контакты указаны правильно, мы свяжемся с Вами в ближайшее время.</span>\n                    <span v-else>Заявка не оправлена, просим воспользоваться электронной почтой: world2016_emig@ukr.net,\n                        <p>или позвонить по номеру телефона: +38 (066)-291-69-84.</p>\n                        <p>Извините за временные неудобства!</p></span>\n                </div>\n\n            </div>\n        </div>\n        <div v-else class = \"load\">\n            <img src =\"/img/load.svg\">\n        </div>\n    </div>\n</div>";
 
 /***/ }),
 /* 38 */
@@ -17412,7 +17449,7 @@ module.exports = "<div>\n    <a name=\"sec4\"></a>\n    <div class=\"section-tit
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_reviews_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_reviews_reviews_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__youtube_block_js__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__image_block_js__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_transform__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_transform__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helpers_touchEvent__ = __webpack_require__(3);
 
 
@@ -17552,14 +17589,11 @@ module.exports = "<div>\n    <div class=\"photo\">\n        <img :src=\"review.s
 
   computed: {
     resize() {
-      this.height = this.$store.state.widthScreen >= 980 ? screen.availHeight * 0.45 : '';
+      this.height = this.$store.state.widthScreen >= 980 ? this.$store.state.availHeightScreen * 0.45 : '';
       return this.height;
     }
 
   },
-
-  mounted() {},
-
   methods: {
     active(e) {
       if (e.target.className === 'close-foto') {
@@ -17596,20 +17630,19 @@ module.exports = "<div>\n    <div class=\"photo\">\n        <img :src=\"review.s
 
       if (document.querySelector('.big_photo')) {
         for (let a = 0; a < document.querySelectorAll('.big_photo').length; a++) {
-          document.querySelector('.big-foto .active').removeChild(document.querySelectorAll('.big_photo')[a]);
+          document.querySelector('.big-foto .active .photo-wrp').removeChild(document.querySelectorAll('.big_photo')[a]);
         }
       }
     },
 
     createNode() {
       this.photoActive = true;
-      console.log(this.photoLoad = true);
+      this.photoLoad = true;
       let img = document.createElement('img');
       img.className = 'big_photo';
-      document.querySelector('.big-foto .active').appendChild(img);
+      document.querySelector('.big-foto .active .photo-wrp').appendChild(img);
 
       img.onload = function () {
-        console.log(this.photoLoad, 'djfh', this);
         this.photoLoad = false;
       }.bind(this);
 
@@ -17629,17 +17662,94 @@ module.exports = "<div>\n    <div class=\"photo\">\n        <img :src=\"review.s
 /* 49 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <div class=\"section-title\">\n        Довольные клиенты\n    </div>\n    <div class=\"section-subtitle\">\n        Люди, которые воспользовались нашими услугами\n    </div>\n\n    <div class=\"client-foto\" v-if=\"$store.state.clientsPhotos.length>0\">\n\n        <div class = 'clients clients-foto foto-block-1' @click =\"active\"\n             :style=\"{\n             'background':`url(../${$store.state.widthScreen>980?$store.state.clientsPhotos[0].big_foto:''})`,\n             'height':`${resize}px`,\n             'background-size': 'cover'\n             }\" >\n            <img :src = \"$store.state.clientsPhotos[0].big_foto\">\n        </div>\n        <div class = 'clients clients-foto foto-block-2' @click =\"active\"\n             :style=\"{\n             'background':`url(../${$store.state.widthScreen>980?$store.state.clientsPhotos[1].big_foto:''})`,\n             'height':`${resize}px`,\n             'background-size': 'cover'\n             }\">\n            <img :src = \"$store.state.clientsPhotos[1].big_foto\">\n        </div>\n        <div class = 'clients clients-foto foto-block-3' :style=\"{'height':`${resize}px`} \">\n            <div class=\"sub-foto-block clients-foto \"\n                 v-for=\"(item,index) in $store.state.clientsPhotos\" v-if = 'index>1' :class=\"'sub-'+(index+1)\" @click ='active'\n                 :style=\"{\n                 'background':`url(../${$store.state.widthScreen>980?item.big_foto:''})`,\n                 'background-size': 'cover'\n                 }\">\n                <img :src=\"item.big_foto\">\n            </div>\n            <div class=\"sub-foto-block sub-4 clients-foto\"><div>\n                <a href=\"https://vk.com/album-135611001_243729185\">Смотреть все (ссылка на ВК)</a></div></div>\n        </div>\n    </div>\n    <div class = 'big-foto' v-show = \"photoActive\">\n        <div class=\"active\" :style = \"{'height': `${$store.state.heightScreen}px`}\">\n\n            <span class=\"close-foto\" @click =\"active\"></span>\n            <img :src = \"'img/load.svg'\" class = 'load' v-show = \"photoLoad\">\n        </div>\n    </div>\n</div>";
+module.exports = "<div>\n    <div class=\"section-title\">\n        Довольные клиенты\n    </div>\n    <div class=\"section-subtitle\">\n        Люди, которые воспользовались нашими услугами\n    </div>\n\n    <div class=\"client-foto\" v-if=\"$store.state.clientsPhotos.length>0\">\n\n        <div class = 'clients clients-foto foto-block-1' @click =\"active\"\n             :style=\"{\n             'background':`url(../${$store.state.widthScreen>980?$store.state.clientsPhotos[0].big_foto:''})`,\n             'height':`${resize}px`,\n             'background-size': 'cover'\n             }\" >\n            <img :src = \"$store.state.clientsPhotos[0].big_foto\">\n        </div>\n        <div class = 'clients clients-foto foto-block-2' @click =\"active\"\n             :style=\"{\n             'background':`url(../${$store.state.widthScreen>980?$store.state.clientsPhotos[1].big_foto:''})`,\n             'height':`${resize}px`,\n             'background-size': 'cover'\n             }\">\n            <img :src = \"$store.state.clientsPhotos[1].big_foto\">\n        </div>\n        <div class = 'clients clients-foto foto-block-3' :style=\"{'height':`${resize}px`} \">\n            <div class=\"sub-foto-block clients-foto \"\n                 v-for=\"(item,index) in $store.state.clientsPhotos\" v-if = 'index>1' :class=\"'sub-'+(index+1)\" @click ='active'\n                 :style=\"{\n                 'background':`url(../${$store.state.widthScreen>980?item.big_foto:''})`,\n                 'background-size': 'cover'\n                 }\">\n                <img :src=\"item.big_foto\">\n            </div>\n            <div class=\"sub-foto-block sub-4 clients-foto\"><div>\n                <a href=\"https://vk.com/album-135611001_243729185\">Смотреть все (ссылка на ВК)</a></div></div>\n        </div>\n    </div>\n    <div class = 'big-foto' v-show = \"photoActive\">\n        <div class=\"active\" :style = \"{'height': `${$store.state.availHeightScreen}px`}\">\n            <span class=\"close-foto\" @click =\"active\"></span>\n            <img :src = \"'img/load.svg'\" class = 'load' v-show = \"photoLoad\">\n            <div class = 'photo-wrp'></div>\n        </div>\n    </div>\n</div>";
 
 /***/ }),
 /* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_about_about_html__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_about_about_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_about_about_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_transform__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_touchEvent__ = __webpack_require__(3);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  template: __WEBPACK_IMPORTED_MODULE_0__build_html_about_about_html___default.a,
+
+  data() {
+    return {
+      clickCount: 0,
+      module: 0,
+      aboutInfo: [],
+      countScreen: 0
+    };
+  },
+
+  computed: {
+    widthTransform() {
+      console.log(this.$store.state.widthScreen, this.module, this.$store.state.about.length);
+      return Object(__WEBPACK_IMPORTED_MODULE_1__helpers_transform__["a" /* default */])(this.$store.state.widthScreen, this.module, this.$store.state.about.length);
+    },
+
+    aboutGet() {
+      this.aboutInfo = this.$store.state.about;
+      return this.$store.state.about.length > 0 ? true : false;
+    }
+
+  },
+
+  mounted() {
+    setTimeout(() => {
+      return this.touchEvent();
+    }, 1000);
+  },
+
+  methods: {
+    increment() {
+      this.clickCount += 1;
+    },
+
+    decrement() {
+      this.clickCount -= 1;
+    },
+
+    touchEvent() {
+      __WEBPACK_IMPORTED_MODULE_2__helpers_touchEvent__["a" /* default */].prototype = this;
+      let constr = new __WEBPACK_IMPORTED_MODULE_2__helpers_touchEvent__["a" /* default */]('.about-us-carousel', this.$store.state.widthScreen);
+      return constr.main();
+    }
+
+  },
+  watch: {
+    clickCount() {
+      return this.module = Math.abs(this.clickCount % this.aboutInfo.length);
+    },
+
+    aboutInfo() {
+      return this.countScreen = this.aboutInfo.length;
+    }
+
+  }
+});
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports) {
+
+module.exports = "<div :style = \"{'height':$store.state.widthScreen<=500?$store.state.heightScreen+'px':'100%'}\">\n    <div class=\"about-us-carousel\" :style = \"widthTransform\" v-if=\"aboutGet\">\n        <div class=\"carousel-1 carousel-about\" :style=\"{'width':`${$store.state.widthScreen}px`}\">\n            <div class=\"section-title\" v-html=\"aboutInfo[0].title\">\n            </div>\n            <div class=\"section-subtitle\" v-html=\"aboutInfo[0].description\">\n            </div>\n            <div class=\"row\">\n                <div class=\"sert-col\">\n                    <div class=\"sert\">\n                        <img :src=\"'img/sert-1.jpg'\">\n                    </div>\n                    <div class=\"sert\">\n                        <img :src=\"'img/sert-2.jpg'\">\n                    </div>\n                </div>\n                <div class=\"text-col\">\n                    <div class=\"text-col-inner\" v-html = \"aboutInfo[0].text\">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"carousel-2 carousel-about\" :style=\"{'width':`${$store.state.widthScreen}px`}\">\n            <div class=\"section-title\" v-html=\"aboutInfo[1].title\">\n            </div>\n            <div class=\"section-subtitle\" v-html=\"aboutInfo[1].description\"></div>\n            <div class=\"row\">\n                <div class=\"text-col\">\n                    <div class=\"text-col-inner\" v-html = \"aboutInfo[1].text\"></div>\n                </div>\n            </div>\n        </div>\n        <div style=\"clear:both;\"></div>\n    </div>\n    <div class=\"nav-2\">\n        <div class=\"owl-prev-2\" @click = \"decrement\"></div>\n        <div class=\"owl-next-2\" @click = \"increment\"></div>\n    </div>\n</div>";
+
+/***/ }),
+/* 52 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_vacantions__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__build_html_App_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__build_html_App_html__);
 
 
@@ -17654,7 +17764,7 @@ module.exports = "<div>\n    <div class=\"section-title\">\n        Доволь
 }));
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports) {
 
 module.exports = "<router-view></router-view>";

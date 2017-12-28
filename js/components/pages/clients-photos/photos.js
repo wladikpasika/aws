@@ -7,20 +7,16 @@ export default {
             height: '',
             photoActive: false,
             photoLoad: false,
-            big_photo:'',
-            availheight:''
+            big_photo:''
         }
     },
     computed:{
 
         resize(){
 
-            this.height = this.$store.state.widthScreen>=980?screen.availHeight*0.45:'';
+            this.height = this.$store.state.widthScreen>=980?this.$store.state.availHeightScreen*0.45:'';
             return this.height;
         }
-    },
-    mounted(){
-        this.availHeight = screen.availHeight;
     },
     methods:{
         active(e){
@@ -72,8 +68,7 @@ export default {
         },
         createNode(){
             this.photoActive = true;
-
-            console.log(this.photoLoad = true);
+            this.photoLoad = true;
 
                 let img = document.createElement('img');
                 img.className = 'big_photo';

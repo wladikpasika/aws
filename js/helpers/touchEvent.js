@@ -20,18 +20,23 @@ export default function(elem,widthScreen){
             if (this.module === 0) {
 
                 document.querySelector(elem).style.transform = transform(0,0,this.slidersCount,delta);
+
             }
             else if (this.module > 0) {
                 left = true;
             }
+
         }
         else {
 
+
             if (this.module === (Math.abs(this.countScreen-1)||Math.abs(this.slidersCount - 1))) {
                 document.querySelector(elem).style.transform = transform(widthScreen,this.module,(this.countScreen||this.slidersCount),delta);
+
             }
-            else if (this.module < this.slidersCount - 1) {
+            else if (this.module < (this.countScreen-1||this.slidersCount - 1)) {
                 right = true;
+
             }
         }
     };
@@ -105,7 +110,7 @@ export default function(elem,widthScreen){
                 return right = false;
             }
 
-            return document.querySelector(elem).style.transform = transform(widthScreen,this.module,(this.countScreen ||this.slidersCount)).transform;
+            return document.querySelector(elem).style.transform = transform(widthScreen,this.module,(this.countScreen||this.slidersCount)).transform;
 
         }.bind(this));
 

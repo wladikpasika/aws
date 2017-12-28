@@ -9,7 +9,6 @@ export default {
     data(){
 
         return {
-
             clickCount: 0,
             module: 0,
             slidersCount:0,

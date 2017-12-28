@@ -1,4 +1,4 @@
-<div :class="!sticking?'menu-wrp':'menu-wrp stiki'" :style = "{'max-height':$store.state.heightScreen+'px'}">
+<div :class="!sticking?'menu-wrp':'menu-wrp stiki'" :style = "{'max-height':$store.state.availHeightScreen+'px'}">
     <nav>
         <div :class="mobMenuActive?'mob-menu active':'mob-menu'" @click = 'mobMenuCheck'>
             <span></span>
