@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6069059-562e-4038-8f82-24695d8f0018" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/contacts/contacts.html" afterPath="$PROJECT_DIR$/build/html/contacts/contacts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/main-slider/top/contacts.html" afterPath="$PROJECT_DIR$/build/html/main-slider/top/contacts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/overlay/overlay.html" afterPath="$PROJECT_DIR$/build/html/overlay/overlay.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/reviews/youtube-block.html" afterPath="$PROJECT_DIR$/build/html/reviews/youtube-block.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle.js" afterPath="$PROJECT_DIR$/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle.js.map" afterPath="$PROJECT_DIR$/bundle.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/styleVue.css" afterPath="$PROJECT_DIR$/css/styleVue.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/contacts.json" afterPath="$PROJECT_DIR$/db/contacts.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/components/pages/contacts/contacts.js" afterPath="$PROJECT_DIR$/js/components/pages/contacts/contacts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/components/pages/review/youtube-block.js" afterPath="$PROJECT_DIR$/js/components/pages/review/youtube-block.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/store/actions.js" afterPath="$PROJECT_DIR$/js/store/actions.js" />
-    </list>
+    <list default="true" id="a6069059-562e-4038-8f82-24695d8f0018" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -272,7 +260,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="75" />
     <option name="y" value="6" />
     <option name="width" value="1301" />
@@ -478,7 +466,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="805353000" />
+    <option name="totallyTimeSpent" value="806741000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -490,8 +478,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="6" width="1303" height="780" extended-state="7" />
-    <editor active="true" />
+    <frame x="75" y="6" width="1303" height="780" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24491392" sideWeight="0.6699029" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -502,7 +489,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21439749" sideWeight="0.24329501" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960877" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22330096" sideWeight="0.49061033" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22330096" sideWeight="0.49061033" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23865415" sideWeight="0.33009708" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
