@@ -16776,7 +16776,7 @@ var index_esm = {
   GET_SCREEN_HEIGHT(context) {
     /*передаем высоту в мутацию, потом в хранилище*/
     let heightScreen = document.documentElement.clientHeight;
-    let availHeightScreen = context.state.widthScreen > 980 ? heightScreen : screen.availHeight;
+    let availHeightScreen = screen.width > 980 ? heightScreen : screen.availHeight;
     context.commit('SET_SCREEN_HEIGHT', heightScreen);
     context.commit('SET_SCREEN_AVAIL_HEIGHT', availHeightScreen);
   },
@@ -17554,9 +17554,28 @@ module.exports = "<div>\n    <div class=\"section-title\">\n        Отзывы
 /* harmony default export */ __webpack_exports__["a"] = ({
   props: ['review'],
   template: __WEBPACK_IMPORTED_MODULE_0__build_html_reviews_youtube_block_html___default.a,
+
+  data() {
+    return {
+      youTybeLoad: false
+    };
+  },
+
+  mounted() {
+    return setTimeout(() => {
+      return this.DOMContentLoaded();
+    }, 4000);
+  },
+
   computed: {
     videoHeight() {
       return this.$store.state.widthScreen >= 980 ? this.$store.getters.widthReview * 0.48 / 1.8 : this.$store.getters.widthReview / 1.8;
+    }
+
+  },
+  methods: {
+    DOMContentLoaded() {
+      return this.youTybeLoad = true;
     }
 
   }
@@ -17566,7 +17585,7 @@ module.exports = "<div>\n    <div class=\"section-title\">\n        Отзывы
 /* 45 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <div class=\"vid\">\n        <iframe :src=\"review.src\" allowfullscreen=\"\" :style=\"{'height':videoHeight+'px'}\"></iframe>\n    </div>\n    <div class=\"vid-text\">\n        <div class=\"vid-text-inner\">\n            <div class=\"name\">\n                {{review.name}}\n            </div>\n            <div class=\"profession\">\n                {{review.review}}\n            </div>\n            <div class=\"profile\">\n                             <span class=\"text\">\n                                 Профиль:\n                             </span>\n                <a class=\"vk\" :href=\"review.social_link\">\n                    <span>В</span>\n                </a>\n            </div>\n        </div>\n    </div>\n</div>";
+module.exports = "<div>\n    <div class=\"vid\">\n        <iframe  v-if = \"youTybeLoad\" :src=\"review.src\" allowfullscreen=\"\" :style=\"{'height':videoHeight+'px'}\"></iframe>\n        <div v-else class = \"load\"><img src =\"/img/load.svg\"></div>\n    </div>\n    <div class=\"vid-text\">\n        <div class=\"vid-text-inner\">\n            <div class=\"name\">\n                {{review.name}}\n            </div>\n            <div class=\"profession\">\n                {{review.review}}\n            </div>\n            <div class=\"profile\">\n                             <span class=\"text\">\n                                 Профиль:\n                             </span>\n                <a class=\"vk\" :href=\"review.social_link\">\n                    <span>В</span>\n                </a>\n            </div>\n        </div>\n    </div>\n</div>";
 
 /***/ }),
 /* 46 */
@@ -17776,14 +17795,33 @@ module.exports = "<div :style = \"{'height': $store.state.widthScreen>500&&$stor
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_contacts_contacts_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_contacts_contacts_html__);
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  template: __WEBPACK_IMPORTED_MODULE_0__build_html_contacts_contacts_html___default.a
+  template: __WEBPACK_IMPORTED_MODULE_0__build_html_contacts_contacts_html___default.a,
+
+  data() {
+    return {
+      googleMapsLoad: false
+    };
+  },
+
+  mounted() {
+    return setTimeout(() => {
+      return this.DOMContentLoaded();
+    }, 6000);
+  },
+
+  methods: {
+    DOMContentLoaded() {
+      return this.googleMapsLoad = true;
+    }
+
+  }
 });
 
 /***/ }),
 /* 53 */
 /***/ (function(module, exports) {
 
-module.exports = "<div v-if = '$store.state.contacts.length>0'>\n    <div class=\"section-title\">\n        Контакты\n    </div>\n    <div class=\"section-subtitle\">\n        Уже сейчас Вы можете изменить свою жизнь - пишите нам\n    </div>\n    <div class=\"map\">\n        <div class=\"contacts\">\n            <p class=\"bold\">{{$store.state.contacts[0].firm_name}}</p>\n            <span v-html=\"$store.state.contacts[0].adress\"></span>\n            <p>\n                <span class =\"main\">\n                    <span v-for=\"item in $store.state.contacts\"><br>\n                        <a class=\"phone\" :href=\"`tel:${item.phones}`\">\n                            {{item.phones}}\n                        </a>\n                    </span>\n                </span>\n                <br>Viber: {{$store.state.contacts[0].viber}}\n                <br>Skype: {{$store.state.contacts[0].skype}}\n                <br> e-mail: {{$store.state.contacts[0].e_mail}}\n            </p>\n            <span class=\"button\">Обратный звонок</span>\n        </div>\n        <span><iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.1284346409016!2d36.23641811571471!3d49.9902014794145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0f21f398e03%3A0x1b7ba7160bc78c6d!2z0LLRg9C70LjRhtGPINCa0L7RgNC-0LvQtdC90LrQsCwgMjUsINCl0LDRgNC60ZbQsiwg0KXQsNGA0LrRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0Yw!5e0!3m2!1suk!2sua!4v1495488974459\" style=\"border:0\" allowfullscreen=\"\"></iframe>\n</span>\n    </div>\n    <footer>\n        Все права защищены © 2017 Работа в Польше, Рабочие визы в Харькове - World Emigration\n        <a href=\"#sec1\"><div class=\"to-top\"></div></a>\n    </footer>\n</div>";
+module.exports = "<div v-if = '$store.state.contacts.length>0'>\n    <div class=\"section-title\">\n        Контакты\n    </div>\n    <div class=\"section-subtitle\">\n        Уже сейчас Вы можете изменить свою жизнь - пишите нам\n    </div>\n    <div class=\"map\">\n        <div class=\"contacts\">\n            <p class=\"bold\">{{$store.state.contacts[0].firm_name}}</p>\n            <span v-html=\"$store.state.contacts[0].adress\"></span>\n            <p>\n                <span class =\"main\">\n                    <span v-for=\"item in $store.state.contacts\"><br>\n                        <a class=\"phone\" :href=\"`tel:${item.phones}`\">\n                            {{item.phones}}\n                        </a>\n                    </span>\n                </span>\n                <br>Viber: {{$store.state.contacts[0].viber}}\n                <br>Skype: {{$store.state.contacts[0].skype}}\n                <br> e-mail: {{$store.state.contacts[0].e_mail}}\n            </p>\n            <span class=\"button\">Обратный звонок</span>\n        </div>\n        <span>\n            <iframe v-if = \"googleMapsLoad\"\n                    src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.1284346409016!2d36.23641811571471!3d49.9902014794145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0f21f398e03%3A0x1b7ba7160bc78c6d!2z0LLRg9C70LjRhtGPINCa0L7RgNC-0LvQtdC90LrQsCwgMjUsINCl0LDRgNC60ZbQsiwg0KXQsNGA0LrRltCy0YHRjNC60LAg0L7QsdC70LDRgdGC0Yw!5e0!3m2!1suk!2sua!4v1495488974459\" style=\"border:0\" allowfullscreen=\"\"></iframe>\n            <div v-else class = \"load\"><img src =\"/img/load.svg\"></div>\n        </span>\n    </div>\n    <footer>\n        Все права защищены © 2017 Работа в Польше, Рабочие визы в Харькове - World Emigration\n        <a href=\"#sec1\"><div class=\"to-top\"></div></a>\n    </footer>\n</div>";
 
 /***/ }),
 /* 54 */

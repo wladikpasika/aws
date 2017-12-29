@@ -6,8 +6,8 @@
     </nav>
     <div :class = "mobMenuActive?'menu-nav active':'menu-nav'">
         <ul :class = "mobMenuActive?'menu active':'menu'">
-            <li v-for ="item in $store.state.navMenu" :data-menuanchor = "item.link">
-                <a :src = "item.link">{{item.title}}</a></li>
+            <li v-for ="item in $store.state.navMenu" :data-menuanchor = "item.link" @click = 'mobMenuCheck'>
+                <a :href = "item.link">{{item.title}}</a></li>
             <div class = "button" @click = 'overlayDisplay'>
                 Оставить заявку
             </div>

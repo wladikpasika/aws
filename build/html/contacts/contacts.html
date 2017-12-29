@@ -21,7 +21,7 @@
                 <br>Skype: {{$store.state.contacts[0].skype}}
                 <br> e-mail: {{$store.state.contacts[0].e_mail}}
             </p>
-            <span class="button">Обратный звонок</span>
+            <span class="button" @click = "overlayDisplay">Обратный звонок</span>
         </div>
         <span>
             <iframe v-if = "googleMapsLoad"

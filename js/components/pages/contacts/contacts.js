@@ -18,7 +18,10 @@ export default{
         DOMContentLoaded(){
             return this.googleMapsLoad = true;
 
-        }
+        },
+        overlayDisplay(){
+            return this.$store.dispatch('OVERLAY_GET').then(()=>{this.thanksBlock = false})
+        },
 
     }
 }
