@@ -19,6 +19,7 @@ export default {
     },
     methods:{
         DOMContentLoaded(){
+
             return this.youTybeLoad = true;
 
         }

@@ -372,6 +372,8 @@ nav {
  padding: 3rem 5rem;
  font-size: 1.8rem;
  line-height: 1.35;
+ overflow: auto;
+
 }
 .close {
  position: absolute;
@@ -1546,6 +1548,7 @@ nav .mob-menu span {
   transition: 0.9s;
   width: 100%;
   background: rgba(239, 243, 246, 0.16);
+  height:100%;
  }
 
  .menu-wrp nav ul.menu {
