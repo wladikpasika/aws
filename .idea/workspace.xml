@@ -3,9 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="a6069059-562e-4038-8f82-24695d8f0018" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle.js" afterPath="$PROJECT_DIR$/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle.js.map" afterPath="$PROJECT_DIR$/bundle.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/components/pages/overlay/overlay.js" afterPath="$PROJECT_DIR$/js/components/pages/overlay/overlay.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/acorn/AUTHORS" afterPath="$PROJECT_DIR$/node_modules/acorn/AUTHORS" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/acorn/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/acorn/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/acorn/README.md" afterPath="$PROJECT_DIR$/node_modules/acorn/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/acorn/bin/acorn" afterPath="$PROJECT_DIR$/node_modules/acorn/bin/acorn" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.es.js" afterPath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.es.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.js" afterPath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn_loose.js" afterPath="$PROJECT_DIR$/node_modules/acorn/dist/acorn_loose.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/acorn/dist/walk.js" afterPath="$PROJECT_DIR$/node_modules/acorn/dist/walk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/acorn/package.json" afterPath="$PROJECT_DIR$/node_modules/acorn/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/webpack/package.json" afterPath="$PROJECT_DIR$/node_modules/webpack/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -432,7 +441,7 @@
       <workItem from="1514678472905" duration="3502000" />
       <workItem from="1514682044946" duration="2609000" />
       <workItem from="1514748633120" duration="5591000" />
-      <workItem from="1514908152190" duration="6513000" />
+      <workItem from="1514908152190" duration="7062000" />
     </task>
     <task id="LOCAL-00001" summary="block with photo complete">
       <created>1514465628754</created>
@@ -445,7 +454,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="831373000" />
+    <option name="totallyTimeSpent" value="831922000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
