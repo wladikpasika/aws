@@ -17376,6 +17376,8 @@ module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\" :style =
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(0);
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   template: __WEBPACK_IMPORTED_MODULE_0__build_html_overlay_overlay_html___default.a,
@@ -17406,7 +17408,7 @@ module.exports = "<div :class=\"!sticking?'menu-wrp':'menu-wrp stiki'\" :style =
         return alert('Вы неправильно заполнили форму, попробуйте еще раз');
       } else {
         this.sendFlag = true;
-        Vue.http.post('email-message', {
+        __WEBPACK_IMPORTED_MODULE_1_vue__["a" /* default */].http.post('email-message', {
           name: this.emailData.name,
           phoneEmail: this.emailData.number
         }).then(success => {
