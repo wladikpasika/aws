@@ -1,6 +1,6 @@
 <div :class="!$store.state.overlayDisplay?'overlay':'overlay active'"
      :style="{
-'height': `${$store.state.availHeightScreen}px`}">
+'max-height': `${$store.state.availHeightScreen}px`}">
     <div class="popup-close" @click = "overlayDisplay"></div>
     <div class="popup" style="display: block;">
         <div class="popup-inner" v-if = "!sendFlag">

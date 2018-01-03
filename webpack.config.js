@@ -1,4 +1,5 @@
 'use strict';
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
@@ -9,7 +10,6 @@ module.exports = {
         filename: "bundle.js",
         library: 'vm'
     },
-    watch: true,
     module: {
         loaders: [
             {
@@ -26,13 +26,31 @@ module.exports = {
             }
         ]
     },
-    devtool: NODE_ENV == 'development' ? 'source-map' : false,
+    devtool: NODE_ENV === 'development' ? 'source-map' : false,
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV),
-            LANG: '"ru"'
+            LANG: '"ru"'}),
+
+        new UglifyJsPlugin({
+
+            uglifyOptions: {
+                ie8: false,
+                ecma: 6,
+
+                output: {
+                    comments: false,
+                    beautify: false,
+                },
+                compress: {
+                    warnings: false,
+                    drop_console: true,
+                    unsafe: true},
+                warnings: false
+            }
         })
+
     ],
     resolve: {
         alias: {
@@ -45,16 +63,24 @@ module.exports = {
     }
 };
 
-if (NODE_ENV == 'production') {
+if (NODE_ENV === 'production') {
 
     module.exports.plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
+        new UglifyJsPlugin({
+        uglifyOptions: {
+            ie8: false,
+            ecma: 6,
+
+            output: {
+                comments: false,
+                beautify: false,
+            },
+            compress: {warnings: false,
                 drop_console: true,
-                unsafe: true
-            }
-        })
+                unsafe: true},
+            warnings: false
+        }
+    })
     );
-}
+};
 console.log(NODE_ENV);
