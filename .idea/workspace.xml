@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6069059-562e-4038-8f82-24695d8f0018" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundle.js" afterPath="$PROJECT_DIR$/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
-    </list>
+    <list default="true" id="a6069059-562e-4038-8f82-24695d8f0018" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -425,7 +421,7 @@
       <workItem from="1514748633120" duration="5591000" />
       <workItem from="1514908152190" duration="17812000" />
       <workItem from="1514978907009" duration="10140000" />
-      <workItem from="1515181258260" duration="10155000" />
+      <workItem from="1515181258260" duration="10390000" />
     </task>
     <task id="LOCAL-00001" summary="block with photo complete">
       <created>1514465628754</created>
@@ -438,7 +434,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="862967000" />
+    <option name="totallyTimeSpent" value="863202000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
