@@ -1,4 +1,3 @@
-var url = require('url');
 var mysqlReq = require('../req-to-DB/connection');
 var readHTML = require('../fs/renderHTML');
 
@@ -28,6 +27,7 @@ module.exports = {
         switch (path.pathname) {
             case '/':
                 if (path.query.slider) {
+
                     mysqlReq.requestToDb(response, path.query.slider);
 
                 }

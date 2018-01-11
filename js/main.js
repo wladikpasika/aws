@@ -8,7 +8,7 @@ import App from './components/App';
 Vue.use(VueRouter);// добавляем плагин
 Vue.use(VueResource);
 
-const router = new VueRouter({routes});//создаем объект роута
+const router = new VueRouter({routes,mode:'history'});//создаем объект роута
 
 var vm = new Vue({
     el:'#app',

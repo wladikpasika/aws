@@ -8,7 +8,8 @@ const querystring = require('querystring');
 const server = http.createServer(function (request, response) {
 
     "use strict";
-    response.writeHead(200, {'Content-Type': 'text/html'});
+    response.writeHead(200, {'Content-Type': 'text/html', 'Access-Control-Allow-Origin': '*'});
+
 
     let path = url.parse(request.url, true);
 
