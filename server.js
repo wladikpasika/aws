@@ -1,32 +1,72 @@
-const http = require('http');
-const url = require('url');
-const routes = require('./custom-node-modules/routes/routes-for-home-page');
-const postParse = require('./custom-node-modules/Email/parsePostMessage');
+const express = require('express');
 const port = 80;
-const querystring = require('querystring');
+const bodyParser = require('body-parser');
 
-const server = http.createServer(function (request, response) {
+const mysqlReq = require('./custom-node-modules/req-to-DB/connection');
+const sendMail = require('./custom-node-modules/Email/sendEmail');
 
+const app = express();
+
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+    extended: true
+}));
+
+app.use('/img', express.static('img'));
+app.use('/css', express.static('css'));
+app.use('/fonts', express.static('fonts'));
+app.use('/public', express.static(__dirname+'/public'));
+
+app.use(function(req,res,next){
+    "use strict"
+
+    if(req.method === 'POST'&&req.path == '/email-message'){
+
+        sendMail.send(req.body, res);
+    }
+    else {
+
+        if (!req.query.slider) {
+            switch (req.url) {
+
+                case '/':
+                    res.sendFile(__dirname + '/index.html');
+                    break;
+
+                case '/vacantions':
+                    res.sendFile(__dirname + '/index.html');
+                    break;
+
+                case '/favicon.png':
+                    res.sendFile(__dirname + '/favicon.png');
+                    break;
+
+                case '/robots.txt':
+                    res.sendFile(__dirname + 'robots.txt');
+                    break;
+
+                case '/sitenap.xml':
+                    res.sendFile(__dirname + 'sitemap.xml');
+                    break;
+                default:{
+                    next();
+                }
+            }
+        } else {
+            mysqlReq.requestToDb(res, req.query.slider);
+        }
+    }});
+
+app.use(function(req,res){
     "use strict";
-    response.writeHead(200, {'Content-Type': 'text/html', 'Access-Control-Allow-Origin': '*'});
+    res.send(404, ' Sorry, But Page Not Found')
 
-
-    let path = url.parse(request.url, true);
-
-    if(request.method === 'POST'&&path.pathname == '/email-message'){
-
-        postParse.postParse(request, response);
-
-    }
-    else if(request.method === 'GET'){
-
-        routes.conditions(path, response);
-    }
 });
 
-server.listen({
+app.listen({
     'port':port,
 });
-console.log(port,' - порт');
+console.log(`Сервер запущен, порт:${port}`);
+
 
 

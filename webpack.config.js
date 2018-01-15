@@ -7,7 +7,7 @@ const webpack = require('webpack');
 module.exports = {
     entry: "./js/main.js",
     output: {
-        filename: "bundle.js",
+        filename: "./public/bundle.js",
         library: 'vm'
     },
     module: {
