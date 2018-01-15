@@ -1,9 +1,10 @@
-const express = require('express');
-const port = 80;
-const bodyParser = require('body-parser');
+const express = require('express'),
+ port = 80,
+ bodyParser = require('body-parser'),
+ compression = require('compression'),
+ mysqlReq = require('./custom-node-modules/req-to-DB/connection'),
+ sendMail = require('./custom-node-modules/Email/sendEmail');
 
-const mysqlReq = require('./custom-node-modules/req-to-DB/connection');
-const sendMail = require('./custom-node-modules/Email/sendEmail');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
 }));
 
+app.use(compression());
 app.use('/img', express.static('img'));
 app.use('/css', express.static('css'));
 app.use('/fonts', express.static('fonts'));
