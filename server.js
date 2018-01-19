@@ -1,12 +1,25 @@
 const express = require('express'),
- port = 80,
- bodyParser = require('body-parser'),
- compression = require('compression'),
- mysqlReq = require('./custom-node-modules/req-to-DB/connection'),
- sendMail = require('./custom-node-modules/Email/sendEmail');
+    port = 80,
+    portSsl = 443,
+    bodyParser = require('body-parser'),
+    compression = require('compression'),
+    fs = require('fs'),
+    https = require('https'),
+    path = require('path'),
+    directoryToServe = 'client',
+    mysqlReq = require('./custom-node-modules/req-to-DB/connection'),
+    sendMail = require('./custom-node-modules/Email/sendEmail'),
+
+    httpOptions = {
+        cert: fs.readFileSync(__dirname+'/ssl/fullchain1.pem'),
+        key: fs.readFileSync(__dirname+'/ssl/privkey1.pem')
+    };
 
 
 const app = express();
+
+app.listen (port);
+https.createServer(httpOptions, app).listen(portSsl);
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -18,6 +31,7 @@ app.use('/img', express.static('img'));
 app.use('/css', express.static('css'));
 app.use('/fonts', express.static('fonts'));
 app.use('/public', express.static(__dirname+'/public'));
+app.use('/.well-known/acme-challenge', express.static(__dirname+'/public'));
 
 app.use(function(req,res,next){
     "use strict"
@@ -30,7 +44,6 @@ app.use(function(req,res,next){
 
         if (!req.query.slider) {
             switch (req.url) {
-
                 case '/':
                     res.sendFile(__dirname + '/index.html');
                     break;
@@ -65,10 +78,5 @@ app.use(function(req,res){
 
 });
 
-app.listen({
-    'port':port,
-});
-console.log(`Сервер запущен, порт:${port}`);
-
-
+console.log('server run on port: 80; ssl on port 443');
 

@@ -24,7 +24,7 @@ module.exports = {
                 response.end('Ошибка соединения с базой данных -', err);
                 return;
             }
-            response.writeHead(200,{'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'})
+            response.writeHead(200,{'Content-Type': 'application/json'})
             response.end(JSON.stringify(result));
         })
     }
