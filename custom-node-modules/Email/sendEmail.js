@@ -10,7 +10,7 @@ module.exports = {
           secure: false,
           port: 25,
           auth:{
-              user:'wladikpasika@gmail.com',
+              user:'wladikpasika@gmail.com ',
               pass:config.pass
 
           },
@@ -20,7 +20,7 @@ module.exports = {
       });
       let HelperOptions = {
           from:'wladikpasika@gmail.com',
-          to:'worldemigration.r@gmail.com',
+          to:'world2016_emig@ukr.net, wladikpasika@gmail.com',
           subject: 'Заявка с сайта',
           text: `Телефон/Email: ${body.phoneEmail}; Имя: ${body.name}`,
       };

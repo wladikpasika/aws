@@ -5,18 +5,19 @@ const express = require('express'),
     compression = require('compression'),
     fs = require('fs'),
     https = require('https'),
-    path = require('path'),
-    directoryToServe = 'client',
-    mysqlReq = require('./custom-node-modules/req-to-DB/connection'),
+
+
+mysqlReq = require('./custom-node-modules/req-to-DB/connection'),
     sendMail = require('./custom-node-modules/Email/sendEmail'),
 
     httpOptions = {
-        cert: fs.readFileSync(__dirname+'/ssl/fullchain1.pem'),
-        key: fs.readFileSync(__dirname+'/ssl/privkey1.pem')
+        cert: fs.readFileSync(__dirname+'/ssl/rabota_com_ua/fullchain1.pem'),
+        key: fs.readFileSync(__dirname+'/ssl/rabota_com_ua/privkey1.pem')
     };
 
 
 const app = express();
+
 
 app.listen (port);
 https.createServer(httpOptions, app).listen(portSsl);
@@ -34,7 +35,15 @@ app.use('/public', express.static(__dirname+'/public'));
 app.use('/.well-known/acme-challenge', express.static(__dirname+'/public'));
 
 app.use(function(req,res,next){
-    "use strict"
+    "use strict";
+    console.log(req.url.length);
+
+    if(req.protocol ==='http'){
+
+        if(req.url.length>1) {return  res.redirect(301, 'https://'+req.hostname + req.url);}
+        else {return  res.redirect(301, 'https://'+req.hostname);}
+
+    };
 
     if(req.method === 'POST'&&req.path == '/email-message'){
 
@@ -79,4 +88,5 @@ app.use(function(req,res){
 });
 
 console.log('server run on port: 80; ssl on port 443');
+
 
