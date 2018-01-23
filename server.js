@@ -36,7 +36,6 @@ app.use('/.well-known/acme-challenge', express.static(__dirname+'/public'));
 
 app.use(function(req,res,next){
     "use strict";
-    console.log(req.url.length);
 
     if(req.protocol ==='http'){
 
@@ -82,9 +81,15 @@ app.use(function(req,res,next){
     }});
 
 app.use(function(req,res){
-    "use strict";
-    res.send(404, ' Sorry, But Page Not Found')
 
+    "use strict";
+    if(req.originalUrl.search(/utm_/i)!==-1){
+        res.sendFile(__dirname + '/index.html');
+    }
+    else
+    {
+        res.send(404, ' Sorry, But Page Not Found')
+    }
 });
 
 console.log('server run on port: 80; ssl on port 443');
