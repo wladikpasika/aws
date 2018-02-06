@@ -1,8 +1,9 @@
 const mysql = require('mysql'),
     connectConfig = {
-        acquireTimeout: 5000,
-        connectionLimit: 50,
-        queueLimit: 30,
+
+        acquireTimeout: 10000,
+        connectionLimit: 100,
+        queueLimit: 50,
         port: '3306',
         user: 'wlad',
         password: '000000',

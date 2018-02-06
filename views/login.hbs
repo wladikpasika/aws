@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="position:relative">
+
+    <a class="navbar-brand" href="#">Тестовое задание</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            {{#if user}}
+            <li class="nav-item">
+                <a class="nav-link" href="/users/logout">Выход</a>
+            </li>
+
+            {{else}}
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users/registration">Регистрация</a>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
+
+<main role="main">
+
+    <div class="container">
+        <div class="row">
+
+            <input type='checkbox' id='form-switch'>
+            <form id='login-form' action="login" method='post'>
+                <input class = 'name' type="text" placeholder="Username" name = "name" required>
+                <input class = 'password' type="password" placeholder="Password" name = "password" required>
+                <button type='submit'>Вперед</button>
+            </form>
+            <form id='register-form' action="register" method='post' style = "display:none">
+                <input class="name" type="text" placeholder="Username" required>
+                <input class="email" type="email" placeholder="Email" required>
+                <input class="password" type="password" placeholder="Password" required>
+                <input class="re-password"type="password" placeholder="Re Password" required>
+                <button type='submit'>Register</button>
+                <label for='form-switch'>Already Member ? Sign In Now..</label>
+            </form>
+        </div>
+        <hr>
+    </div>
+</main>
+
+<footer class="container">
+    <p>&copy; Company 2017-2018</p>
+   <script src = "/public/js/ajax-login.js"></script>
+</footer>

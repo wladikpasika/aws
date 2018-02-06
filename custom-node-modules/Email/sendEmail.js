@@ -37,8 +37,6 @@ module.exports = {
               return response.end();
 
           }
-
       });
-
   }
 };

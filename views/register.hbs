@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="position:relative">
+    <a class="navbar-brand" href="#">Тестовое задание</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+              <ul class="navbar-nav mr-auto">
+            {{#if user}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/logout">Выйти</a>
+                </li>
+            {{else}}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Домашняя<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/login">Вход</a>
+                </li>
+            {{/if}}
+        </ul>
+    </div>
+</nav>
+
+<main role="main">
+{{#if errors}}
+    {{#each errors}}
+        <div class="alert alert-success">{{msg}}</div>
+        {{/each}}
+    {{/if}}
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+
+            <form id='register-form' action="/users/register" method='post' style = "display:block">
+                <input class="name" type="text" placeholder="Username" name="name" required>
+                <input class="email" type="email" placeholder="Email" name ="email" required>
+                <input class="password" type="password" placeholder="Password" name = 'password' required>
+                <input class="re-password"type="password" placeholder="Re Password" name = 'password2' required>
+                <button type='submit'>Зарегистрироваться</button>
+            </form>
+        </div>
+
+        <hr>
+
+    </div> <!-- /container -->
+
+</main>
+
+<footer class="container">
+    <p>&copy; Company 2017-2018</p>
+    <script src = "/public/js/ajax-registration.js"></script>
+</footer>
+
+<!-- Bootstrap core JavaScript

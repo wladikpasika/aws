@@ -1,0 +1,133 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="position:relative">
+
+    <a class="navbar-brand" href="#">Тестовое задание</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            {{#if user}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/logout">Выйти</a>
+                </li>
+            {{else}}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/registration">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/login">Вход</a>
+                </li>
+            {{/if}}
+
+        </ul>
+
+    </div>
+</nav>
+
+<main role="main">
+
+<div class="container">
+
+    {{#if userProfile.ban}}
+        Пользователь заблокирован, если это Ваша страница, обратитесь к администратору сайта, тел: 000000000
+        {{else}}
+        <div class = 'avatar'>
+            <div class = 'about'>
+                {{#if path}} <img src = {{path}}>{{/if}}
+            </div>
+            <div class ='text'>
+                {{#if userProfile.first_name}}
+                    <div class = "user-name"><h2>{{userProfile.first_name}} {{userProfile.last_name}}</h2></div>
+                {{else}}
+                    <div class = "user-name"><h2>Пользователь не представился</h2></div>
+                {{/if}}
+
+                {{userProfile.about}}</div>
+            <div style = "clear:both"></div>
+        </div>
+
+
+        {{# if owner}}
+            {{# if superUser }}<h2>Список других пользователей</h2>
+                <table>
+                    <tr>
+                        <td>Логин</td>
+                        <td>Email</td>
+                        <td>Имя</td>
+                        <td>Фамилия</td>
+                        <td>Права доступа</td>
+                        <td>Адресс страницы</td>
+                        <td>Блокировка</td>
+                        <td></td>
+                    </tr>
+                    {{# each  nonRootUsers as | val key|}}
+                        <tr>
+                            <td>{{val.name}}</td>
+                            <td>{{val.email}}</td>
+                            <td>{{val.first_name}}</td>
+                            <td>{{val.last_name}}</td>
+                            <td>{{val.status}}</td>
+                            <td><a href="/users/main/{{val.name}}-{{val.id}}">Перейти</a></td>
+                            <td><span data="{{val.name}}-{{val.id}}" style="color:red">Заблокировать &raquo;</span></td>
+                            <td>{{#if val.ban}}<span allow = "{{val.name}}-{{val.id}}" style="color:green">Разблокировать &raquo;</span>{{/if}}</td>
+                        </tr>
+                    {{/each}}
+                </table>
+            {{/if}}
+        <span class = "edit-button">Редактировать профиль &raquo;</span>
+        <div class ='edit' style = "display:none">
+        <div class = 'load-img'>
+
+        <h2>Загрузите изображение</h2>
+        <form action="upload" method="POST" name = "myImage" enctype="multipart/form-data">
+            <div class="file-field input-field">
+                <div>
+                    <span>Ваше изображение</span>
+                    <input name="myImage" type="file" id = "img-input">
+                </div>
+
+            </div>
+            <button type="submit" class="btn" id = "btn-img">Загрузить</button>
+        </form></div>
+
+        <h2>Расскажите о себе</h2>
+
+        <form>
+            <div class="form-group">
+                <label for="first-name">Имя</label>
+                <input type="first-name" id="first-name" placeholder="введите Ваше Имя" name="first-name">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Фамилия:</label>
+                <input type="last-name"  id="last-name" placeholder="введите Фамилию" name="pwd">
+            </div>
+
+            <div class="form-group">
+                <label for="comment">Несколько предложений:</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <button type="submit" class="btn" id = "about-botton">Отправить</button>
+        </form>
+        </div>
+
+        {{/if}}
+    {{/if}}
+</div>
+
+</main>
+
+<footer class="container">
+
+    <p>&copy; Company 2017-2018</p>
+
+    <script src = "/public/js/profileFormSend.js"></script>
+    <script src = "/public/js/sendAboutForm.js"></script>
+    <script src = "/public/js/edit-info.js"></script>
+{{# if superUser }}
+    <script src = "/public/js/blockUsers.js"></script>
+{{/if}}
+</footer>
