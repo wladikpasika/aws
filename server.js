@@ -8,6 +8,7 @@ const express = require('express'),
     https = require('https'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
+    MySQLStore = require('express-mysql-session')(session),
     flash = require('connect-flash'),
     expressValidator = require('express-validator'),
     passport = require('passport'),
@@ -20,7 +21,13 @@ const express = require('express'),
     httpOptions = {
         cert: fs.readFileSync(__dirname+'/ssl/rabota_com_ua/fullchain1.pem'),
         key: fs.readFileSync(__dirname+'/ssl/rabota_com_ua/privkey1.pem')
-    };
+    },
+    sessionStore = new MySQLStore({
+    host: 'localhost',
+    port: 3306,
+    user: 'wlad',
+    password: '000000',
+    database: 'World_Emigration'});
 
 /*Инициализируем приложение*/
 
@@ -47,8 +54,10 @@ app.use(cookieParser());
 /*Настройка сессий*/
 app.use(session({
     secret:'secret',
-    saveUninitialized: true,
-    resave: true
+    saveUninitialized:true,
+    resave: true,
+    store:sessionStore
+    //cookie:{httpOnly:false}
 }));
 
 /*Инициализация паспорта*/

@@ -28,7 +28,7 @@ module.exports = {
     },
     devtool: NODE_ENV === 'development' ? 'source-map' : false,
     plugins: [
-        new webpack.NoEmitOnErrorsPlugin(),
+       /* new webpack.NoEmitOnErrorsPlugin(),*/
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV),
             LANG: '"ru"'}),
@@ -62,7 +62,7 @@ module.exports = {
         port: 8080,
     }
 };
-
+/*
 if (NODE_ENV === 'production') {
 
     module.exports.plugins.push(
@@ -82,5 +82,5 @@ if (NODE_ENV === 'production') {
         }
     })
     );
-};
+};*/
 console.log(NODE_ENV);

@@ -27,8 +27,11 @@ export default {
 
         moduleListen(){
             this.count;
-            this.module = this.clickCount%this.slidersCount;
-            return this.clickCount%this.slidersCount;
+            /*this.module = this.clickCount%this.slidersCount;
+            return this.clickCount%this.slidersCount;*/
+
+            this.clickCount<0?this.module = (this.slidersCount - Math.abs(this.clickCount%this.slidersCount))%this.slidersCount:this.module = this.clickCount%this.slidersCount;
+            return this.module;
         },
 
         widthTransform(){
